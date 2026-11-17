@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halka</title>
+<style>
+:root{--bg:#F6F5F2;--sf:#fff;--ink:#1C1C21;--mu:#8A8A93;--ln:#E7E5E0;--ac:#4F5BD5;--as:#ECEEFB;--dg:#C0504D;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#121214;--sf:#1A1A1E;--ink:#ECECF0;--mu:#8B8B95;--ln:#2A2A30;--ac:#7C86F0;--as:#23253A;--dg:#E07A77;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Segoe UI",Inter,Roboto,sans-serif}
+button,input,textarea{font:inherit;color:inherit}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:20px;letter-spacing:.2px}
+.ring{width:22px;height:22px;border-radius:50%;border:3px solid var(--ac)}
+.hide{display:none!important}
+/* login */
+#auth{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:32px;width:100%;max-width:380px}
+.card .logo{justify-content:center;margin-bottom:6px;font-size:26px}
+.sub{text-align:center;color:var(--mu);margin-bottom:24px}
+.tabs{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:18px}
+.tabs button{flex:1;border:0;background:none;padding:8px;border-radius:8px;cursor:pointer;color:var(--mu)}
+.tabs button.on{background:var(--sf);color:var(--ink);font-weight:500}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:11px 13px;outline:none}
+input:focus,textarea:focus{border-color:var(--ac)}
+label{display:block;font-size:13px;color:var(--mu);margin:0 0 6px}
+.f{margin-bottom:14px}
+.btn{width:100%;border:0;background:var(--ac);color:#fff;padding:12px;border-radius:10px;cursor:pointer;font-weight:500}
+.btn:disabled{opacity:.6}
+.err{color:var(--dg);font-size:13px;min-height:18px;margin-bottom:8px}
+/* app */
+#app{height:100%;display:flex;flex-direction:column}
+header{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--sf);border-bottom:1px solid var(--ln);flex:none}
+.hr{display:flex;align-items:center;gap:8px}
+.chip{font-size:13px;color:var(--mu);padding:0 6px}
+.ghost{border:1px solid var(--ln);background:none;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+.ghost:hover{background:var(--bg)}
+.ghost.ac{border-color:var(--ac);color:var(--ac)}
+main{flex:1;display:flex;min-height:0}
+aside{width:300px;background:var(--sf);border-right:1px solid var(--ln);display:flex;flex-direction:column;flex:none}
+.ah{padding:16px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.list{overflow:auto;flex:1;padding:0 8px 8px}
+.room{padding:12px;border-radius:10px;cursor:pointer}
+.room:hover{background:var(--bg)}
+.room.on{background:var(--as)}
+.room b{display:block;font-weight:500}
+.room small{color:var(--mu)}
+section{flex:1;display:flex;flex-direction:column;min-width:0}
+.ch{padding:14px 20px;background:var(--sf);border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px}
+.ch div{flex:1;min-width:0}
+.ch small{color:var(--mu);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{display:none}
+#msgs{flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:min(70%,520px);align-self:flex-start}
+.m .n{font-size:12px;color:var(--mu);margin:0 4px 2px}
+.m .b{background:var(--sf);border:1px solid var(--ln);padding:9px 13px;border-radius:14px;border-top-left-radius:4px;word-wrap:break-word;white-space:pre-wrap}
+.m.me{align-self:flex-end;text-align:right}
+.m.me .b{background:var(--ac);border-color:var(--ac);color:#fff;border-radius:14px;border-top-right-radius:4px;text-align:left}
+.m .x{border:0;background:none;color:var(--dg);font-size:12px;cursor:pointer;margin-left:6px}
+.empty{margin:auto;color:var(--mu);text-align:center}
+.send{display:flex;gap:10px;padding:14px 20px;background:var(--sf);border-top:1px solid var(--ln)}
+.send input{flex:1}
+.send .btn{width:auto;padding:0 22px}
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9}
+.ov .card{max-width:440px;max-height:85vh;overflow:auto}
+.ov h3{margin-bottom:16px;font-weight:600}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--ln)}
+.row small{color:var(--mu)}
+.dl{border:0;background:none;color:var(--dg);cursor:pointer}
+@media(max-width:720px){
+ aside{width:100%;border:0}
+ section{display:none}
+ #app.inroom aside{display:none}
+ #app.inroom section{display:flex}
+ .back{display:block}
+ .m{max-width:85%}
+}
+</style>
+</head>
+<body>
+
+<div id="auth">
+ <div class="card">
+  <div class="logo"><span class="ring"></span>Halka</div>
+  <p class="sub">Sakin bir sohbet alanı</p>
+  <div class="tabs"><button id="tL" class="on">Giriş</button><button id="tR">Kayıt ol</button></div>
+  <div class="f"><label>Kullanıcı adı</label><input id="u" autocomplete="username" maxlength="20"></div>
+  <div class="f"><label>Şifre</label><input id="p" type="password" autocomplete="current-password"></div>
+  <div class="err" id="ae"></div>
+  <button class="btn" id="go">Giriş yap</button>
+ </div>
+</div>
+
+<div id="app" class="hide">
+ <header>
+  <div class="logo"><span class="ring"></span>Halka</div>
+  <div class="hr">
+   <span class="chip" id="who"></span>
+   <button class="ghost ac hide" id="adm">Yönetim</button>
+   <button class="ghost" id="out">Çıkış</button>
+  </div>
+ </header>
+ <main>
+  <aside>
+   <div class="ah">Odalar <button class="ghost" id="nr">+ Yeni</button></div>
+   <div class="list" id="rooms"></div>
+  </aside>
+  <section>
+   <div class="ch">
+    <button class="ghost back" id="bk">←</button>
+    <div><b id="rn">Bir oda seç</b><small id="rd"></small></div>
+    <button class="ghost hide" id="dr" style="color:var(--dg)">Odayı sil</button>
+   </div>
+   <div id="msgs"><div class="empty">Sohbete başlamak için soldan bir oda seç.</div></div>
+   <form class="send hide" id="sf"><input id="mi" placeholder="Mesaj yaz…" maxlength="500" autocomplete="off"><button class="btn">Gönder</button></form>
+  </section>
+ </main>
+</div>
+
+<div id="modal" class="ov hide"><div class="card" id="mc"></div></div>
+
+<script>
+const URL_='https://hsnndcpkhccpnxzqbgzq.supabase.co';
+const KEY='sb_publishable_b8JMkCh9PAZrEQ4PgLl0gA_OMYwsKjV';
+const ADMIN={u:'Sophix',p:'1029384756al.'};
+const $=id=>document.getElementById(id);
+const esc=s=>{const d=document.createElement('div');d.textContent=s??'';return d.innerHTML};
+let me=null,room=null,mode='login',tm=null,tr=null,lastSig='';
+
+async function api(path,opt={}){
+ const r=await fetch(URL_+'/rest/v1/'+path,{...opt,headers:{apikey:KEY,'Content-Type':'application/json',...opt.headers}});
+ const t=await r.text();let d=null;try{d=t?JSON.parse(t):null}catch{d=t}
+ if(!r.ok)throw new Error((d&&d.message)||'Bir hata oluştu');
+ return d;
+}
+const rpc=(n,b)=>api('rpc/'+n,{method:'POST',body:JSON.stringify(b)});
+const cred=()=>({p_username:me.u,p_password:me.p});
+
+/* auth */
+$('tL').onclick=()=>setMode('login');
+$('tR').onclick=()=>setMode('register');
+function setMode(m){mode=m;$('tL').classList.toggle('on',m=='login');$('tR').classList.toggle('on',m=='register');$('go').textContent=m=='login'?'Giriş yap':'Hesap oluştur';$('ae').textContent=''}
+$('go').onclick=async()=>{
+ const u=$('u').value.trim(),p=$('p').value;
+ $('ae').textContent='';
+ if(!u||!p){$('ae').textContent='Kullanıcı adı ve şifre gerekli.';return}
+ $('go').disabled=true;
+ try{
+  if(mode=='register'){
+   await rpc('register_user',{p_username:u,p_password:p});
+  }
+  if(u===ADMIN.u){
+   if(p!==ADMIN.p)throw new Error('Kullanıcı adı veya şifre hatalı.');
+   me={u:ADMIN.u,p,admin:true};
+  }else{
+   const ok=await rpc('login_user',{p_username:u,p_password:p});
+   if(!ok)throw new Error('Kullanıcı adı veya şifre hatalı.');
+   me={u,p,admin:false};
+  }
+  try{localStorage.setItem('halka',JSON.stringify(me))}catch(e){}
+  start();
+ }catch(e){$('ae').textContent=e.message}
+ $('go').disabled=false;
+};
+['u','p'].forEach(i=>$(i).addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click()}));
+$('out').onclick=()=>{try{localStorage.removeItem('halka')}catch(e){}location.reload()};
+
+function start(){
+ $('auth').classList.add('hide');$('app').classList.remove('hide');
+ $('who').textContent=me.u+(me.admin?' · admin':'');
+ $('adm').classList.toggle('hide',!me.admin);
+ loadRooms();clearInterval(tr);tr=setInterval(loadRooms,10000);
+}
+try{const s=JSON.parse(localStorage.getItem('halka')||'null');if(s&&s.u){me=s;start()}}catch(e){}
+
+/* rooms */
+async function loadRooms(){
+ try{
+  const d=await api('rooms?select=*&order=created_at.desc');
+  $('rooms').innerHTML=d.length?d.map(r=>`<div class="room ${room&&room.id==r.id?'on':''}" data-id="${r.id}"><b>${esc(r.name)}</b><small>${esc(r.description||'@'+r.owner)}</small></div>`).join(''):'<div class="empty" style="padding:30px 0">Henüz oda yok.</div>';
+  $('rooms').querySelectorAll('.room').forEach(el=>el.onclick=()=>openRoom(d.find(x=>x.id==el.dataset.id)));
+ }catch(e){}
+}
+function openRoom(r){
+ room=r;lastSig='';
+ $('rn').textContent=r.name;$('rd').textContent=r.description||'Oluşturan: '+r.owner;
+ $('sf').classList.remove('hide');
+ $('dr').classList.toggle('hide',!me.admin);
+ $('app').classList.add('inroom');
+ loadRooms();loadMsgs(true);
+ clearInterval(tm);tm=setInterval(()=>loadMsgs(false),3000);
+}
+$('bk').onclick=()=>{$('app').classList.remove('inroom');clearInterval(tm);room=null;loadRooms()};
+
+async function loadMsgs(force){
+ if(!room)return;
+ try{
+  const d=(await api(`messages?room_id=eq.${room.id}&select=*&order=created_at.desc&limit=100`)).reverse();
+  const sig=d.map(m=>m.id).join(',');
+  if(sig===lastSig&&!force)return;lastSig=sig;
+  const box=$('msgs'),near=box.scrollHeight-box.scrollTop-box.clientHeight<80;
+  box.innerHTML=d.length?d.map(m=>{
+   const mine=m.username.toLowerCase()==me.u.toLowerCase();
+   const t=new Date(m.created_at).toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});
+   return `<div class="m ${mine?'me':''}"><div class="n">${mine?'':esc(m.username)+' · '}${t}${me.admin?`<button class="x" data-d="${m.id}">sil</button>`:''}</div><div class="b">${esc(m.content)}</div></div>`}).join(''):'<div class="empty">Henüz mesaj yok. İlk mesajı sen yaz.</div>';
+  box.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{await rpc('admin_delete_message',{p_admin:me.p,p_id:+b.dataset.d});loadMsgs(true)});
+  if(near||force)box.scrollTop=box.scrollHeight;
+ }catch(e){}
+}
+$('sf').onsubmit=async e=>{
+ e.preventDefault();
+ const c=$('mi').value.trim();if(!c||!room)return;
+ $('mi').value='';
+ try{await rpc('send_message',{...cred(),p_room:room.id,p_content:c});loadMsgs(true)}catch(er){alert(er.message)}
+};
+$('dr').onclick=async()=>{
+ if(!room||!confirm('Bu oda ve tüm mesajları silinsin mi?'))return;
+ await rpc('admin_delete_room',{p_admin:me.p,p_id:room.id});
+ $('bk').click();
+};
+
+/* modal */
+function modal(html){$('mc').innerHTML=html;$('modal').classList.remove('hide')}
+function closeM(){$('modal').classList.add('hide')}
+$('modal').onclick=e=>{if(e.target.id=='modal')closeM()};
+
+$('nr').onclick=()=>{
+ modal(`<h3>Yeni oda</h3><div class="f"><label>Oda adı</label><input id="rn2" maxlength="40"></div><div class="f"><label>Açıklama (isteğe bağlı)</label><input id="rd2" maxlength="100"></div><div class="err" id="re"></div><button class="btn" id="rc">Oluştur</button>`);
+ $('rc').onclick=async()=>{
+  const n=$('rn2').value.trim();if(!n){$('re').textContent='Oda adı gerekli.';return}
+  try{await rpc('create_room',{...cred(),p_name:n,p_desc:$('rd2').value.trim()});closeM();loadRooms()}catch(e){$('re').textContent=e.message}
+ };
+};
+
+$('adm').onclick=async()=>{
+ modal('<h3>Kullanıcılar</h3><div id="ul" class="empty">Yükleniyor…</div>');
+ const draw=async()=>{
+  try{
+   const d=await rpc('admin_list_users',{p_admin:me.p});
+   $('ul').className='';
+   $('ul').innerHTML=d.length?d.map(u=>`<div class="row"><div>${esc(u.username)}<br><small>${new Date(u.created_at).toLocaleDateString('tr-TR')}</small></div><button class="dl" data-u="${u.id}">Sil</button></div>`).join(''):'<div class="empty">Kullanıcı yok.</div>';
+   $('ul').querySelectorAll('.dl').forEach(b=>b.onclick=async()=>{if(confirm('Kullanıcı silinsin mi?')){await rpc('admin_delete_user',{p_admin:me.p,p_id:b.dataset.u});draw()}});
+  }catch(e){$('ul').textContent=e.message}
+ };
+ draw();
+};
+</script>
+</body>
+</html>
