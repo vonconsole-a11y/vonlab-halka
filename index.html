@@ -77,6 +77,27 @@ section{flex:1;display:flex;flex-direction:column;min-width:0}
  .back{display:block}
  .m{max-width:85%}
 }
+
+.hl{display:flex;align-items:center;gap:10px}
+.av{width:38px;height:38px;border-radius:50%;border:0;background:var(--as);color:var(--ac);font-weight:600;cursor:pointer;overflow:hidden;display:grid;place-items:center;padding:0}
+.av img{width:100%;height:100%;object-fit:cover}
+.av.big{width:88px;height:88px;font-size:32px;margin:0 auto 10px;cursor:default}
+.gold{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--ln);border-radius:20px;padding:5px 12px 5px 8px;font-size:14px}
+.gold svg{width:18px;height:18px}
+.quick{display:flex;gap:10px;padding:14px 16px 4px}
+.q{flex:1;border:1px solid var(--ln);background:var(--bg);border-radius:14px;padding:12px 4px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;font-size:13px;transition:transform .15s}
+.q:active{transform:scale(.96)}
+.q i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center}
+.q svg{width:22px;height:22px}
+.pg{height:6px;background:var(--ln);border-radius:3px;overflow:hidden;margin-top:8px}
+.pg i{display:block;height:100%;background:var(--ac);transition:width .4s}
+.tk{padding:12px 0;border-bottom:1px solid var(--ln)}
+.rw{font-size:12px;color:var(--mu)}
+.btn.sm{width:auto;padding:6px 14px;font-size:13px}
+.stat{display:flex;justify-content:center;gap:18px;color:var(--mu);font-size:13px;margin-bottom:14px}
+.ov{animation:fd .18s ease}.ov .card{animation:up .22s ease}
+@keyframes fd{from{opacity:0}}@keyframes up{from{opacity:0;transform:translateY(12px)}}
+@media(max-width:720px){header .logo,.chip{display:none}}
 </style>
 </head>
 <body>
@@ -95,6 +116,7 @@ section{flex:1;display:flex;flex-direction:column;min-width:0}
 
 <div id="app" class="hide">
  <header>
+  <div class="hl"><button class="av" id="av" title="Profil"></button><span class="gold"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#E8A93A"/><circle cx="10" cy="10" r="5.5" fill="none" stroke="#FFF3D6" stroke-width="1.5"/></svg><b id="gv">0</b></span></div>
   <div class="logo"><span class="ring"></span>Halka</div>
   <div class="hr">
    <span class="chip" id="who"></span>
@@ -104,6 +126,7 @@ section{flex:1;display:flex;flex-direction:column;min-width:0}
  </header>
  <main>
   <aside>
+   <div class="quick"><button class="q" data-q="rank"><i style="background:rgba(232,169,58,.18);color:#E8A93A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg></i>Sıralama</button><button class="q" data-q="task"><i style="background:rgba(79,91,213,.16);color:var(--ac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 4-4"/></svg></i>Görev</button><button class="q" data-q="online"><i style="background:rgba(52,168,110,.16);color:#34A86E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>Çevrimiçi</button></div>
    <div class="ah">Odalar <button class="ghost" id="nr">+ Yeni</button></div>
    <div class="list" id="rooms"></div>
   </aside>
@@ -171,7 +194,7 @@ function start(){
  $('auth').classList.add('hide');$('app').classList.remove('hide');
  $('who').textContent=me.u+(me.admin?' · admin':'');
  $('adm').classList.toggle('hide',!me.admin);
- loadRooms();clearInterval(tr);tr=setInterval(loadRooms,10000);
+ loadRooms();clearInterval(tr);tr=setInterval(loadRooms,10000);initStats();
 }
 try{const s=JSON.parse(localStorage.getItem('halka')||'null');if(s&&s.u){me=s;start()}}catch(e){}
 
@@ -246,6 +269,52 @@ $('adm').onclick=async()=>{
  };
  draw();
 };
+
+/* ===== Aşama 1: profil, altın, görevler ===== */
+var st;
+function setAv(el,name,src){el.textContent='';if(src&&src.indexOf('data:image/')==0){const i=new Image();i.src=src;el.appendChild(i)}else el.textContent=(name||'?')[0].toUpperCase()}
+function paintTop(){setAv($('av'),me.u,st&&st.avatar);$('gv').textContent=st?st.gold:0}
+async function refreshStats(){try{st=await rpc('stats_get',cred())}catch(e){st=st||{avatar:'',bio:'',gold:0,popularity:0}}paintTop()}
+async function ping(){try{await rpc('online_ping',cred())}catch(e){}}
+function initStats(){st=null;paintTop();refreshStats();ping();clearInterval(window._pg);window._pg=setInterval(ping,60000)}
+$('av').onclick=()=>openProfile();
+document.querySelectorAll('.q').forEach(b=>b.onclick=()=>{
+ if(b.dataset.q=='task')openTasks();else modal('<h3>Yakında</h3><p class="sub" style="margin:0">Bu bölüm sonraki aşamada eklenecek.</p>')});
+
+function shrink(f){return new Promise((ok,no)=>{const i=new Image(),u=URL.createObjectURL(f);
+ i.onload=()=>{const c=document.createElement('canvas');c.width=c.height=160;const x=c.getContext('2d'),s=Math.min(i.width,i.height);
+  x.drawImage(i,(i.width-s)/2,(i.height-s)/2,s,s,0,0,160,160);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',.8))};
+ i.onerror=()=>no(new Error('Görsel okunamadı'));i.src=u})}
+
+function openProfile(){
+ const s=st||{avatar:'',bio:'',gold:0,popularity:0};let na=null;
+ modal(`<div class="av big" id="pav"></div><div style="text-align:center;font-weight:600;font-size:17px">${esc(me.u)}</div>
+ <div class="stat"><span>Popülerlik: <b>${s.popularity}</b></span><span>Altın: <b>${s.gold}</b></span></div>
+ <input type="file" id="pf" accept="image/*" class="hide"><button class="ghost" id="pc" style="display:block;margin:0 auto 16px">Fotoğrafı değiştir</button>
+ <div class="f"><label>Profil açıklaması</label><textarea id="pb" rows="3" maxlength="200">${esc(s.bio)}</textarea></div>
+ <div class="err" id="pe"></div><button class="btn" id="ps">Kaydet</button>`);
+ setAv($('pav'),me.u,s.avatar);
+ $('pc').onclick=()=>$('pf').click();
+ $('pf').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{na=await shrink(f);setAv($('pav'),me.u,na)}catch(er){$('pe').textContent=er.message}};
+ $('ps').onclick=async()=>{try{st=await rpc('stats_update',{...cred(),p_bio:$('pb').value.trim(),p_avatar:na!==null?na:s.avatar});paintTop();closeM()}catch(er){$('pe').textContent=er.message}};
+}
+
+function rwTxt(t){const a=[];if(t.gold)a.push('+'+t.gold+' altın');if(t.pop)a.push('+'+t.pop+' popülerlik');return a.join(' · ')}
+async function openTasks(){
+ modal('<h3>Günlük görevler</h3><div id="tl" class="empty">Yükleniyor…</div><p class="rw" style="margin-top:12px">Görevler her gün gece yarısı (TSİ) yenilenir.</p>');
+ const draw=async()=>{
+  try{
+   const d=await rpc('task_list',cred());$('tl').className='';
+   $('tl').innerHTML=d.map(t=>{
+    const done=t.progress>=t.target;
+    const b=!t.available?'<span class="rw">Yakında</span>':t.claimed?'<span class="rw">Alındı ✓</span>':done?`<button class="btn sm" data-c="${esc(t.code)}">Ödülü al</button>`:`<span class="rw">${t.progress}/${t.target}</span>`;
+    return `<div class="tk"><div class="row" style="border:0;padding:0"><div><div>${esc(t.title)}</div><div class="rw">${rwTxt(t)}</div></div>${b}</div><div class="pg"><i style="width:${t.claimed?100:t.progress/t.target*100}%"></i></div></div>`}).join('');
+   $('tl').querySelectorAll('[data-c]').forEach(b=>b.onclick=async()=>{b.disabled=true;
+    try{st=await rpc('task_claim',{...cred(),p_code:b.dataset.c});paintTop();draw()}catch(e){alert(e.message);draw()}});
+  }catch(e){$('tl').className='empty';$('tl').textContent=e.message}
+ };
+ draw();
+}
 </script>
 </body>
 </html>
