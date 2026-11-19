@@ -215,6 +215,27 @@ aside{overflow-y:auto}
 .gg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .gg button{border:1px solid var(--ln);background:var(--sf);border-radius:14px;padding:10px 4px;cursor:pointer}
 .gg button.on{border-color:#F25C9A;background:rgba(242,92,154,.1)}
+
+#bn{display:flex;flex:none;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:var(--sf);border-top:1px solid var(--ln)}
+#bn button{flex:1;border:0;border-radius:14px;padding:7px 2px;background:rgba(176,132,92,.16);color:#8A6240;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;cursor:pointer;transition:transform .15s}
+#bn button:active{transform:scale(.95)}
+#bn button.on{background:rgba(176,132,92,.4);color:#5E3F22;font-weight:600}
+#bn svg{width:24px;height:24px}
+@media(prefers-color-scheme:dark){#bn button{color:#D2A97F}#bn button.on{color:#F0CFA6}}
+#app[data-tab=h] section{display:none}
+#app[data-tab=h] aside{width:100%;max-width:560px;margin:0 auto;border:0}
+.rh{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 8px;font-weight:700;font-size:18px}
+.cats{display:flex;gap:6px;overflow:auto;padding:0 12px 10px;flex:none}
+.cat{flex:none;border:0;background:none;padding:6px 12px;border-radius:12px;color:var(--mu);cursor:pointer;font-weight:500}
+.cat.on{background:rgba(176,132,92,.2);color:#8A6240;font-weight:700}
+.room{display:flex;gap:12px;align-items:center}
+.room>div:last-child{min-width:0}
+.ra{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;flex:none}
+.tgc{display:inline-block;font-size:11px;padding:1px 8px;border-radius:8px;margin-right:6px}
+.tp{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.tp button{border:1px solid var(--ln);background:none;border-radius:14px;padding:6px 14px;cursor:pointer}
+.tp button.on{color:#fff;border-color:transparent}
+@media(max-width:720px){#app.inroom #bn{display:none}}
 </style>
 </head>
 <body>
@@ -243,11 +264,11 @@ aside{overflow-y:auto}
  </header>
  <main>
   <aside>
-   <div class="quick"><button class="q" data-q="rank"><i style="background:rgba(232,169,58,.18);color:#E8A93A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg></i>Sıralama</button><button class="q" data-q="task"><i style="background:rgba(79,91,213,.16);color:var(--ac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 4-4"/></svg></i>Görev</button><button class="q" data-q="online"><i style="background:rgba(52,168,110,.16);color:#34A86E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>Çevrimiçi</button></div>
+   <div id="tH"><div class="quick"><button class="q" data-q="rank"><i style="background:rgba(232,169,58,.18);color:#E8A93A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg></i>Sıralama</button><button class="q" data-q="task"><i style="background:rgba(79,91,213,.16);color:var(--ac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 4-4"/></svg></i>Görev</button><button class="q" data-q="online"><i style="background:rgba(52,168,110,.16);color:#34A86E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>Çevrimiçi</button></div>
    <div class="gh">Oyunlar</div>
    <button class="gc" data-g="domino"><span class="ol"></span><span class="t">Domino</span><span class="s">2-4 kişilik</span><svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(-16 40 42)"><rect x="16" y="6" width="40" height="68" rx="7" fill="#FAF8F2" stroke="#3a2a1a" stroke-width="3"/><line x1="16" y1="40" x2="56" y2="40" stroke="#3a2a1a" stroke-width="3"/><circle cx="28" cy="18" r="3.6" fill="#222"/><circle cx="44" cy="28" r="3.6" fill="#222"/><circle cx="28" cy="50" r="3.6" fill="#222"/><circle cx="44" cy="50" r="3.6" fill="#222"/><circle cx="28" cy="62" r="3.6" fill="#222"/><circle cx="44" cy="62" r="3.6" fill="#222"/></g><g transform="rotate(14 86 42)"><rect x="66" y="6" width="40" height="68" rx="7" fill="#FAF8F2" stroke="#3a2a1a" stroke-width="3"/><line x1="66" y1="40" x2="106" y2="40" stroke="#3a2a1a" stroke-width="3"/><circle cx="76" cy="16" r="3.6" fill="#222"/><circle cx="96" cy="16" r="3.6" fill="#222"/><circle cx="86" cy="26" r="3.6" fill="#222"/><circle cx="76" cy="34" r="3.6" fill="#222"/><circle cx="96" cy="34" r="3.6" fill="#222"/><circle cx="76" cy="50" r="3.6" fill="#222"/><circle cx="86" cy="58" r="3.6" fill="#222"/><circle cx="96" cy="66" r="3.6" fill="#222"/></g></svg></button>
-   <div class="ah">Odalar <button class="ghost" id="nr">+ Yeni</button></div>
-   <div class="list" id="rooms"></div>
+   </div>
+   <div id="tR" class="hide"><div class="rh">Sohbet Odaları <button class="ghost" id="nr">+ Oda kur</button></div><div class="cats" id="cats"></div><div class="list" id="rooms"></div></div>
   </aside>
   <section>
    <div class="ch">
@@ -259,6 +280,7 @@ aside{overflow-y:auto}
    <form class="send hide" id="sf"><input id="mi" placeholder="Mesaj yaz…" maxlength="500" autocomplete="off"><button class="btn">Gönder</button></form>
   </section>
  </main>
+ <nav id="bn"><button data-t="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10a4 4 0 0 1 4 4v1a3 3 0 0 1-5.2 2L14.5 14h-5l-1.3 1A3 3 0 0 1 3 13v-1a4 4 0 0 1 4-4zM8 10.5v3M6.5 12h3M16 11h.01M18 13h.01"/></svg>Halka</button><button data-t="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg>Sohbet Odası</button><button data-t="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Mesaj</button><button data-t="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Keşfet</button><button data-t="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Benim</button></nav>
 </div>
 
 <div id="modal" class="ov hide"><div class="card" id="mc"></div></div>
@@ -321,16 +343,32 @@ function start(){
 try{const s=JSON.parse(localStorage.getItem('halka')||'null');if(s&&s.u){me=s;start()}}catch(e){}
 
 /* rooms */
-async function loadRooms(){
- try{
-  const d=await api('rooms?select=*&order=created_at.desc');
-  $('rooms').innerHTML=d.length?d.map(r=>`<div class="room ${room&&room.id==r.id?'on':''}" data-id="${r.id}"><b>${esc(r.name)}</b><small>${esc(r.description||'@'+r.owner)}</small></div>`).join(''):'<div class="empty" style="padding:30px 0">Henüz oda yok.</div>';
-  $('rooms').querySelectorAll('.room').forEach(el=>el.onclick=()=>openRoom(d.find(x=>x.id==el.dataset.id)));
- }catch(e){}
+const TAGS=[['arkadaslik','Arkadaşlık','#C9743A'],['oyun','Oyun','#5F9A5B'],['video','Video','#B0557A'],['sohbet','Sohbet','#4F8FA8'],['muzik','Müzik','#8A6BB0']];
+let RD=[],cat='all';
+const tgOf=r=>{const m=/^§(\w+)§/.exec(r.description||'');return TAGS.find(t=>t[0]==(m?m[1]:'sohbet'))||TAGS[3]};
+const dsc=r=>(r.description||'').replace(/^§\w+§/,'');
+function drawCats(){$('cats').innerHTML=[['all','Bütün']].concat(TAGS).map(t=>`<button class="cat ${cat==t[0]?'on':''}" data-c="${t[0]}">${t[1]}</button>`).join('');
+ $('cats').querySelectorAll('.cat').forEach(b=>b.onclick=()=>{cat=b.dataset.c;drawCats();drawRooms()})}
+function drawRooms(){
+ const d=RD.filter(r=>cat=='all'||tgOf(r)[0]==cat);
+ $('rooms').innerHTML=d.length?d.map(r=>{const t=tgOf(r);return `<div class="room ${room&&room.id==r.id?'on':''}" data-id="${r.id}"><div class="ra" style="background:linear-gradient(135deg,${t[2]},${t[2]}99)">${esc(r.name[0].toUpperCase())}</div><div><b>${esc(r.name)}</b><small><span class="tgc" style="background:${t[2]}22;color:${t[2]}">${t[1]}</span>@${esc(r.owner)}${dsc(r)?' · '+esc(dsc(r)):''}</small></div></div>`}).join(''):'<div class="empty" style="padding:30px 0">Bu kategoride oda yok.</div>';
+ $('rooms').querySelectorAll('.room').forEach(el=>el.onclick=()=>openRoom(RD.find(x=>x.id==el.dataset.id)));
 }
+async function loadRooms(){
+ try{RD=await api('rooms?select=*&order=created_at.desc');if(!$('cats').children.length)drawCats();drawRooms()}catch(e){}
+}
+function setTab(t){
+ if(room)$('bk').click();
+ $('app').dataset.tab=t;
+ $('tH').classList.toggle('hide',t!='h');$('tR').classList.toggle('hide',t!='r');
+ document.querySelectorAll('#bn button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));
+ if(t=='r')loadRooms();
+}
+document.querySelectorAll('#bn button').forEach(b=>b.onclick=()=>{const t=b.dataset.t;if(t=='h'||t=='r')setTab(t);else modal('<h3>Yakında</h3><p class="sub" style="margin:0">Bu bölüm sonraki aşamada eklenecek.</p>')});
+setTab('h');
 function openRoom(r){
  room=r;lastSig='';
- $('rn').textContent=r.name;$('rd').textContent=r.description||'Oluşturan: '+r.owner;
+ $('rn').textContent=r.name;$('rd').textContent=dsc(r)||'Oluşturan: '+r.owner;
  $('sf').classList.remove('hide');
  $('dr').classList.toggle('hide',!me.admin);
  $('app').classList.add('inroom');
@@ -372,10 +410,13 @@ function closeM(){$('modal').classList.add('hide')}
 $('modal').onclick=e=>{if(e.target.id=='modal')closeM()};
 
 $('nr').onclick=()=>{
- modal(`<h3>Yeni oda</h3><div class="f"><label>Oda adı</label><input id="rn2" maxlength="40"></div><div class="f"><label>Açıklama (isteğe bağlı)</label><input id="rd2" maxlength="100"></div><div class="err" id="re"></div><button class="btn" id="rc">Oluştur</button>`);
+ let tag=null;
+ modal(`<h3>Yeni oda</h3><div class="f"><label>Oda adı</label><input id="rn2" maxlength="40"></div><div class="f"><label>Etiket (zorunlu)</label><div class="tp">${TAGS.map(t=>`<button data-t="${t[0]}" data-col="${t[2]}">${t[1]}</button>`).join('')}</div></div><div class="f"><label>Açıklama (isteğe bağlı)</label><input id="rd2" maxlength="80"></div><div class="err" id="re"></div><button class="btn" id="rc">Oluştur</button>`);
+ $('mc').querySelectorAll('.tp button').forEach(b=>b.onclick=()=>{tag=b.dataset.t;$('mc').querySelectorAll('.tp button').forEach(x=>{const on=x==b;x.classList.toggle('on',on);x.style.background=on?x.dataset.col:''})});
  $('rc').onclick=async()=>{
   const n=$('rn2').value.trim();if(!n){$('re').textContent='Oda adı gerekli.';return}
-  try{await rpc('create_room',{...cred(),p_name:n,p_desc:$('rd2').value.trim()});closeM();loadRooms()}catch(e){$('re').textContent=e.message}
+  if(!tag){$('re').textContent='Bir etiket seçmelisin.';return}
+  try{await rpc('create_room',{...cred(),p_name:n,p_desc:'§'+tag+'§'+$('rd2').value.trim()});closeM();cat='all';drawCats();loadRooms()}catch(e){$('re').textContent=e.message}
  };
 };
 
