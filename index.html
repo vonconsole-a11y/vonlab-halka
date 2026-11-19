@@ -222,8 +222,8 @@ aside{overflow-y:auto}
 #bn button.on{background:rgba(176,132,92,.4);color:#5E3F22;font-weight:600}
 #bn svg{width:24px;height:24px}
 @media(prefers-color-scheme:dark){#bn button{color:#D2A97F}#bn button.on{color:#F0CFA6}}
-#app[data-tab=h] section{display:none}
-#app[data-tab=h] aside{width:100%;max-width:560px;margin:0 auto;border:0}
+#app[data-tab=h] section,#app[data-tab=m] section,#app[data-tab=k] section{display:none}
+#app[data-tab=h] aside,#app[data-tab=m] aside,#app[data-tab=k] aside{width:100%;max-width:560px;margin:0 auto;border:0}
 .rh{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 8px;font-weight:700;font-size:18px}
 .cats{display:flex;gap:6px;overflow:auto;padding:0 12px 10px;flex:none}
 .cat{flex:none;border:0;background:none;padding:6px 12px;border-radius:12px;color:var(--mu);cursor:pointer;font-weight:500}
@@ -236,6 +236,110 @@ aside{overflow-y:auto}
 .tp button{border:1px solid var(--ln);background:none;border-radius:14px;padding:6px 14px;cursor:pointer}
 .tp button.on{color:#fff;border-color:transparent}
 @media(max-width:720px){#app.inroom #bn{display:none}}
+
+.uc{isolation:isolate;--w:58px;--cc:#E02B25;--cl:#FF6A5E;--cd:#8C0F0C;width:var(--w);height:calc(var(--w)*1.5);border-radius:calc(var(--w)*.14);border:calc(var(--w)*.05) solid #fff;position:relative;flex:none;color:#fff;overflow:hidden;background:radial-gradient(circle at 28% 18%,var(--cl),var(--cc) 52%,var(--cd));box-shadow:0 0 0 1px rgba(0,0,0,.45),0 0 12px var(--cc),0 4px 8px rgba(0,0,0,.5);user-select:none;transition:transform .18s,box-shadow .18s;font-family:"Arial Black",Impact,system-ui,sans-serif}
+.uc::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.38),rgba(255,255,255,0) 38%);pointer-events:none;z-index:3}
+.uc.cr{--cc:#E02B25;--cl:#FF6A5E;--cd:#8C0F0C}.uc.cy{--cc:#F5BE1B;--cl:#FFE36B;--cd:#B07A00}.uc.cg{--cc:#1FAA3C;--cl:#6EE58A;--cd:#0A5A1B}.uc.cb{--cc:#1E6BE0;--cl:#6DAAFF;--cd:#0A3A8C}
+.uc.cw,.uc.cx{--cc:#17171d;--cl:#3b3b46;--cd:#000}
+.uc .el{position:absolute;left:9%;right:9%;top:15%;bottom:15%;border-radius:50%;border:calc(var(--w)*.03) solid rgba(255,255,255,.92);background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.4),rgba(255,255,255,0) 58%),linear-gradient(160deg,var(--cl),var(--cc) 62%,var(--cd));transform:rotate(-27deg);box-shadow:inset 0 0 8px rgba(0,0,0,.25)}
+.uc.cw .el{background:conic-gradient(#E02B25 0 25%,#1E6BE0 0 50%,#1FAA3C 0 75%,#F5BE1B 0)}
+.uc.vf .el{background:#fff}
+.uc.cx .el{background:#E02B25}
+.uc .ct{position:absolute;inset:0;display:grid;place-items:center;z-index:2}
+.uc .nm{font-size:calc(var(--w)*.55);line-height:1;font-style:italic;text-shadow:-.045em -.045em 0 #111,.045em -.045em 0 #111,-.045em .045em 0 #111,.045em .045em 0 #111,0 .07em 0 #111}
+.uc .nm.ul{text-decoration:underline;text-decoration-thickness:.07em}
+.uc .ct svg{width:62%;filter:drop-shadow(0 1.5px 0 #111) drop-shadow(0 -1px 0 #111) drop-shadow(1px 0 0 #111) drop-shadow(-1px 0 0 #111)}
+.uc .cn{position:absolute;z-index:2;font-style:normal;font-size:calc(var(--w)*.2);font-weight:900;line-height:1;text-shadow:-1px -1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111,1px 1px 0 #111}
+.uc .cn.tl{top:5%;left:9%}.uc .cn.br{bottom:5%;right:9%}
+.uc .wd{display:block;width:calc(var(--w)*.17);height:calc(var(--w)*.17);border-radius:50%;border:1.5px solid #fff;background:conic-gradient(#E02B25 0 25%,#1E6BE0 0 50%,#1FAA3C 0 75%,#F5BE1B 0);text-shadow:none}
+.uc .ub{font-size:calc(var(--w)*.27);color:#F5BE1B;font-style:italic;transform:rotate(-27deg);text-shadow:-.05em -.05em 0 #111,.05em -.05em 0 #111,-.05em .05em 0 #111,.05em .05em 0 #111,0 .09em 0 #B3261E}
+.uw{position:relative;margin-bottom:30px}
+.utab{position:relative;min-height:200px;display:flex;gap:36px;align-items:center;justify-content:center;border-radius:28px;border:3px solid #E7C873;background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.16),transparent 60%),repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 2px,transparent 2px 7px),radial-gradient(ellipse at 50% 45%,#a8223a,#650f21 82%);box-shadow:inset 0 0 0 7px #7a1527,inset 0 0 0 8px rgba(231,200,115,.65),inset 0 0 60px rgba(0,0,0,.5),0 12px 22px rgba(0,0,0,.35);--tc:#E02B25}
+.utab::after{content:"";position:absolute;left:8px;right:8px;bottom:-26px;height:32px;z-index:-1;border-radius:0 0 26px 26px;background:repeating-linear-gradient(90deg,#4f0c1a 0 13px,#6d1426 13px 26px);border-bottom:4px dotted #E7C873;box-shadow:0 12px 16px rgba(0,0,0,.4)}
+.utab.shk{animation:ushk .45s}
+@keyframes ushk{0%,100%{transform:none}20%{transform:translateX(-6px) rotate(-.6deg)}40%{transform:translateX(6px) rotate(.6deg)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.ucg{position:absolute;left:50%;top:50%;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;background:radial-gradient(circle,var(--tc),transparent 66%);opacity:.42;transition:background .5s;pointer-events:none}
+.utm{position:absolute;top:9px;left:50%;transform:translateX(-50%);z-index:4;background:rgba(0,0,0,.5);color:#fff;border:1px solid #E7C873;border-radius:14px;padding:2px 14px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.upile{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:#fff;font-size:12px}
+.dp{position:relative;width:70px;height:105px}
+.upile.hint .dp .uc{animation:uhint 1.1s ease-in-out infinite;cursor:pointer}
+@keyframes uhint{0%,100%{box-shadow:0 0 0 1px #000,0 0 6px #F5BE1B,0 4px 8px rgba(0,0,0,.5)}50%{box-shadow:0 0 0 1px #000,0 0 22px #F5BE1B,0 4px 8px rgba(0,0,0,.5)}}
+.dirm{display:inline-block;animation:uspin 3s linear infinite}.dirm.rv{animation-direction:reverse}
+@keyframes uspin{to{transform:rotate(360deg)}}
+.wcd{position:absolute;right:-6px;bottom:-6px;width:20px;height:20px;border-radius:50%;border:3px solid #fff;z-index:5;box-shadow:0 0 8px rgba(0,0,0,.5)}
+.burst{position:absolute;left:50%;top:52px;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:4px solid var(--tc);z-index:1;animation:ubst .75s ease-out forwards;pointer-events:none}
+@keyframes ubst{0%{transform:scale(.5);opacity:1}100%{transform:scale(2.6);opacity:0}}
+.uc.dropme{animation:upm .55s cubic-bezier(.2,.8,.3,1)}
+.uc.dropbot{animation:upb .55s cubic-bezier(.2,.8,.3,1)}
+@keyframes upm{0%{opacity:.2;transform:translateY(240px) scale(1.55) rotate(-28deg);filter:brightness(1.5)}55%{opacity:1;transform:translateY(-8px) scale(.94) rotate(calc(var(--rot) + 8deg))}100%{transform:rotate(var(--rot));filter:none}}
+@keyframes upb{0%{opacity:.2;transform:translateY(-230px) scale(1.55) rotate(28deg);filter:brightness(1.5)}55%{opacity:1;transform:translateY(8px) scale(.94) rotate(calc(var(--rot) - 8deg))}100%{transform:rotate(var(--rot));filter:none}}
+.seat{position:relative;padding:0 6px 46px;margin-top:2px}
+.seat>.cb{position:absolute;left:3%;right:3%;top:2px;bottom:48px;border-radius:40px 40px 12px 12px;background:linear-gradient(180deg,#94613a,#5a3518);box-shadow:inset 0 0 0 3px #b07a4a,0 6px 12px rgba(0,0,0,.35)}
+.seat>.cb::after{content:"";position:absolute;inset:12px;border-radius:30px 30px 8px 8px;background:radial-gradient(circle at 50% 18%,#c43a52,#6d1426);box-shadow:inset 0 0 18px rgba(0,0,0,.55)}
+.seat .cs{position:absolute;left:0;right:0;bottom:14px;height:34px;border-radius:18px;background:linear-gradient(180deg,#c43a52,#7a1527);border:3px solid #6a4020;box-shadow:0 7px 10px rgba(0,0,0,.4)}
+.seat .cl{position:absolute;bottom:-4px;width:14px;height:26px;border-radius:3px;background:linear-gradient(90deg,#4a2b12,#6a4020)}.seat .cl.l{left:9%}.seat .cl.r{right:9%}
+.seat.on>.cb{box-shadow:inset 0 0 0 3px #F5BE1B,0 0 22px rgba(245,190,27,.8)}
+.seat .mt{position:absolute;left:50%;bottom:19px;transform:translateX(-50%);z-index:2;color:#fff;font-size:12px;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.uh{position:relative;z-index:1;display:flex;flex-wrap:nowrap;justify-content:center;gap:0;padding:26px 14px 14px;min-height:128px}
+.uh .uc{--w:58px;margin-left:var(--ml,-29px)}.uh .uc:first-child{margin-left:0}
+.uh .uc.ok{transform:translateY(-6px);cursor:pointer;box-shadow:0 0 0 1px #000,0 0 0 3px #F5BE1B,0 0 16px #F5BE1B,0 4px 8px rgba(0,0,0,.5)}
+.uh .uc.ok:hover{transform:translateY(-10px) scale(1.06);z-index:3}
+.uh .uc.no{filter:brightness(.55) saturate(.7)}
+.uh .uc.deal{animation:udp .22s ease-out backwards}
+.mb2 i.dl{animation:udp .22s ease-out backwards}
+.unr{display:flex;justify-content:center;margin:-2px 0 4px}
+.unob{border:3px solid #fff;border-radius:999px;padding:8px 30px;font:900 italic 22px "Arial Black",Impact,system-ui,sans-serif;color:#F5BE1B;background:linear-gradient(180deg,#E4504A,#B3261E);box-shadow:0 4px 0 #7E1710,0 0 0 1px #000;text-shadow:-1px -1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111,1px 1px 0 #111;cursor:pointer;letter-spacing:1px}
+.unob:active{transform:translateY(3px);box-shadow:0 1px 0 #7E1710,0 0 0 1px #000}
+.unob.hot{animation:uhot .7s ease-in-out infinite}
+.unob.on{filter:brightness(.8) saturate(.7)}
+@keyframes uhot{0%,100%{box-shadow:0 4px 0 #7E1710,0 0 0 1px #000,0 0 6px #F5BE1B}50%{box-shadow:0 4px 0 #7E1710,0 0 0 1px #000,0 0 24px #F5BE1B}}
+.uh .uc.fresh{animation:udw .55s cubic-bezier(.2,.8,.3,1)}
+@keyframes udp{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+@keyframes udw{0%{opacity:0;transform:translate(-130px,-290px) rotate(-40deg) scale(.5)}100%{opacity:1;transform:none}}
+.mb2{display:flex;margin-top:4px;padding-left:4px}.mb2 i{width:9px;height:14px;border-radius:2px;margin-left:-4px;background:linear-gradient(145deg,#2b2b33,#000);border:1px solid #fff}
+.rif{position:relative;width:100%;height:150px}
+.rf,.fly{position:absolute;left:50%;top:50%;width:46px;height:68px;margin:-34px 0 0 -23px;border-radius:7px;border:2px solid #fff;background:radial-gradient(ellipse at 50% 50%,#E02B25 0 30%,transparent 31%),linear-gradient(145deg,#2b2b33,#0c0c10);box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.rf{animation:urif 1.15s ease-in-out 2 both}
+@keyframes urif{0%{transform:translate(calc(var(--s)*-88px),calc(var(--k)*-1px)) rotate(calc(var(--s)*-9deg))}30%{transform:translate(calc(var(--s)*-52px),calc(-34px - var(--k)*1.5px)) rotate(calc(var(--s)*-20deg))}62%{transform:translate(calc(var(--s)*-8px),-12px) rotate(calc(var(--s)*-5deg))}100%{transform:translate(0,calc(var(--k)*-1.4px)) rotate(0)}}
+.fly{opacity:0;z-index:8;animation:ufly .6s cubic-bezier(.4,0,.6,1) both}
+@keyframes ufly{0%{opacity:0;transform:translate(var(--sx,0px),var(--sy,0px)) scale(.8)}10%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--rt,0deg)) scale(var(--sc,1))}}
+.ubn{position:absolute;left:50%;top:34%;transform:translate(-50%,-50%);font-size:58px;font-weight:900;font-style:italic;color:#F5BE1B;text-shadow:0 4px 0 #B3261E,0 0 26px rgba(245,190,27,.85);pointer-events:none;animation:ubn 1.3s ease-out forwards;z-index:9}
+@keyframes ubn{0%{opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(-10deg)}25%{opacity:1;transform:translate(-50%,-50%) scale(1.25) rotate(4deg)}70%{opacity:1;transform:translate(-50%,-60%) scale(1)}100%{opacity:0;transform:translate(-50%,-95%) scale(1)}}
+.gpb.rel{position:relative}
+
+/* ===== mesajlar + keşfet ===== */
+#bn button{position:relative}
+.bdg{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#E5322D;color:#fff;font:700 11px/16px -apple-system,Inter,sans-serif;text-align:center;border:2px solid var(--sf)}
+#bn .bdg{top:1px;right:calc(50% - 26px)}
+.rq{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--ln);background:var(--bg);display:grid;place-items:center;cursor:pointer;padding:0;color:var(--ink);flex:none}
+.rq svg{width:22px;height:22px}
+.rq:active{transform:scale(.94)}
+.fro{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:12px;cursor:pointer}
+.fro:hover{background:var(--bg)}
+.fro .nmx{flex:1;min-width:0}
+.fro .nmx b{font-weight:600;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fro .nmx small{color:var(--mu)}
+.fro .ra{border-radius:50%;width:48px;height:48px;font-size:18px;background:linear-gradient(135deg,#4F5BD5,#8E9BFF)}
+#dmv{z-index:25}
+.cml{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:8px;max-width:560px;width:100%;margin:0 auto}
+.cml .m{max-width:82%}
+.cml .m .tm{font-size:11px;color:var(--mu);margin:2px 4px 0}
+#dmv .send{max-width:560px;width:100%;margin:0 auto;padding:12px 14px calc(12px + env(safe-area-inset-bottom,0px))}
+#dmv .gph .pa{width:38px;height:38px}
+.kfd{padding:0 12px 18px;display:flex;flex-direction:column;gap:14px}
+.kp{background:var(--sf);border:1px solid var(--ln);border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.kh{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.kh .pa{width:40px;height:40px}
+.kn{flex:1;min-width:0}
+.kn b{cursor:pointer;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kn small{display:block;color:var(--mu);font-size:12px}
+.ki{display:block;width:100%;max-height:520px;object-fit:cover;background:var(--bg)}
+.kb{padding:10px 14px 2px;white-space:pre-wrap;word-wrap:break-word}
+.ka{display:flex;gap:18px;padding:8px 14px 12px}
+.ka button{border:0;background:none;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--mu);font-size:15px;padding:4px 0}
+.ka button i{font-style:normal;font-size:19px;line-height:1}
+.ka button.on{color:#E5322D}
+.kpv{margin:8px 0}.kpv img{width:100%;max-height:260px;object-fit:cover;border-radius:12px;display:block}
 </style>
 </head>
 <body>
@@ -264,11 +368,14 @@ aside{overflow-y:auto}
  </header>
  <main>
   <aside>
-   <div id="tH"><div class="quick"><button class="q" data-q="rank"><i style="background:rgba(232,169,58,.18);color:#E8A93A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg></i>Sıralama</button><button class="q" data-q="task"><i style="background:rgba(79,91,213,.16);color:var(--ac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 4-4"/></svg></i>Görev</button><button class="q" data-q="online"><i style="background:rgba(52,168,110,.16);color:#34A86E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>Çevrimiçi</button></div>
+   <div id="hubH"><div class="quick"><button class="q" data-q="rank"><i style="background:rgba(232,169,58,.18);color:#E8A93A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/></svg></i>Sıralama</button><button class="q" data-q="task"><i style="background:rgba(79,91,213,.16);color:var(--ac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 4-4"/></svg></i>Görev</button><button class="q" data-q="online"><i style="background:rgba(52,168,110,.16);color:#34A86E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>Çevrimiçi</button></div>
    <div class="gh">Oyunlar</div>
    <button class="gc" data-g="domino"><span class="ol"></span><span class="t">Domino</span><span class="s">2-4 kişilik</span><svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(-16 40 42)"><rect x="16" y="6" width="40" height="68" rx="7" fill="#FAF8F2" stroke="#3a2a1a" stroke-width="3"/><line x1="16" y1="40" x2="56" y2="40" stroke="#3a2a1a" stroke-width="3"/><circle cx="28" cy="18" r="3.6" fill="#222"/><circle cx="44" cy="28" r="3.6" fill="#222"/><circle cx="28" cy="50" r="3.6" fill="#222"/><circle cx="44" cy="50" r="3.6" fill="#222"/><circle cx="28" cy="62" r="3.6" fill="#222"/><circle cx="44" cy="62" r="3.6" fill="#222"/></g><g transform="rotate(14 86 42)"><rect x="66" y="6" width="40" height="68" rx="7" fill="#FAF8F2" stroke="#3a2a1a" stroke-width="3"/><line x1="66" y1="40" x2="106" y2="40" stroke="#3a2a1a" stroke-width="3"/><circle cx="76" cy="16" r="3.6" fill="#222"/><circle cx="96" cy="16" r="3.6" fill="#222"/><circle cx="86" cy="26" r="3.6" fill="#222"/><circle cx="76" cy="34" r="3.6" fill="#222"/><circle cx="96" cy="34" r="3.6" fill="#222"/><circle cx="76" cy="50" r="3.6" fill="#222"/><circle cx="86" cy="58" r="3.6" fill="#222"/><circle cx="96" cy="66" r="3.6" fill="#222"/></g></svg></button>
+   <button class="gc" data-g="uno" style="background:linear-gradient(135deg,#E4504A,#B3261E);box-shadow:0 4px 0 #7E1710"><span class="ol"></span><span class="t">Uno</span><span class="s">2-4 kişilik · 5 dk</span><svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(-20 36 44)"><rect x="14" y="8" width="38" height="58" rx="7" fill="#F2B632" stroke="#fff" stroke-width="3"/><text x="33" y="45" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">7</text></g><g transform="rotate(-2 62 44)"><rect x="42" y="8" width="38" height="58" rx="7" fill="#3D7FE0" stroke="#fff" stroke-width="3"/><text x="61" y="45" font-size="18" font-weight="800" fill="#fff" text-anchor="middle">+2</text></g><g transform="rotate(18 90 44)"><rect x="70" y="8" width="38" height="58" rx="7" fill="#3FA86B" stroke="#fff" stroke-width="3"/><text x="89" y="45" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">⊘</text></g></svg></button>
    </div>
-   <div id="tR" class="hide"><div class="rh">Sohbet Odaları <button class="ghost" id="nr">+ Oda kur</button></div><div class="cats" id="cats"></div><div class="list" id="rooms"></div></div>
+   <div id="hubR" class="hide"><div class="rh">Sohbet Odaları <button class="ghost" id="nr">+ Oda kur</button></div><div class="cats" id="cats"></div><div class="list" id="rooms"></div></div>
+   <div id="hubM" class="hide"><div class="rh">Mesajlar <button class="rq" id="rq" title="Arkadaşlık istekleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M19 7.5v6M16 10.5h6"/></svg><i class="bdg hide" id="rqb"></i></button></div><div class="list" id="mlist"></div></div>
+   <div id="hubK" class="hide"><div class="rh">Keşfet <span style="display:flex;gap:8px;align-items:center"><button class="ghost" id="kr" title="Yenile">↻</button><button class="btn sm" id="kn">＋ Anı paylaş</button></span></div><div class="kfd" id="kfeed"></div></div>
   </aside>
   <section>
    <div class="ch">
@@ -285,7 +392,7 @@ aside{overflow-y:auto}
 
 <div id="modal" class="ov hide"><div class="card" id="mc"></div></div>
 <div id="gp" class="gp hide"></div>
-<div id="pf" class="gp hide"></div><div id="toast"></div><input type="file" id="cf" accept="image/*" class="hide">
+<div id="pf" class="gp hide"></div><div id="dmv" class="gp hide"></div><input type="file" id="kf" accept="image/*" class="hide"><div id="toast"></div><input type="file" id="cf" accept="image/*" class="hide">
 
 
 <script>
@@ -339,6 +446,7 @@ function start(){
  $('who').textContent=me.u+(me.admin?' · admin':'');
  $('adm').classList.toggle('hide',!me.admin);
  loadRooms();clearInterval(tr);tr=setInterval(loadRooms,10000);initStats();
+ setTimeout(pollReq,0);clearInterval(window._rqi);window._rqi=setInterval(()=>{if(!document.hidden)pollReq()},20000);
 }
 try{const s=JSON.parse(localStorage.getItem('halka')||'null');if(s&&s.u){me=s;start()}}catch(e){}
 
@@ -355,17 +463,19 @@ function drawRooms(){
  $('rooms').querySelectorAll('.room').forEach(el=>el.onclick=()=>openRoom(RD.find(x=>x.id==el.dataset.id)));
 }
 async function loadRooms(){
- try{RD=await api('rooms?select=*&order=created_at.desc');if(!$('cats').children.length)drawCats();drawRooms()}catch(e){}
+ try{RD=await api('rooms?select=*&order=created_at.desc');drawRooms()}catch(e){$('rooms').innerHTML='<div class="empty" style="padding:30px 0">Odalar yüklenemedi: '+esc(e.message)+'</div>'}
 }
 function setTab(t){
  if(room)$('bk').click();
  $('app').dataset.tab=t;
- $('tH').classList.toggle('hide',t!='h');$('tR').classList.toggle('hide',t!='r');
+ $('hubH').classList.toggle('hide',t!='h');$('hubR').classList.toggle('hide',t!='r');$('hubM').classList.toggle('hide',t!='m');$('hubK').classList.toggle('hide',t!='k');
  document.querySelectorAll('#bn button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));
  if(t=='r')loadRooms();
+ if(t=='m')loadMsgList();
+ if(t=='k')loadFeed(true);
 }
-document.querySelectorAll('#bn button').forEach(b=>b.onclick=()=>{const t=b.dataset.t;if(t=='h'||t=='r')setTab(t);else modal('<h3>Yakında</h3><p class="sub" style="margin:0">Bu bölüm sonraki aşamada eklenecek.</p>')});
-setTab('h');
+document.querySelectorAll('#bn button').forEach(b=>b.onclick=()=>{const t=b.dataset.t;if(t=='h'||t=='r'||t=='m'||t=='k')setTab(t);else modal('<h3>Yakında</h3><p class="sub" style="margin:0">Bu bölüm sonraki aşamada eklenecek.</p>')});
+setTab('h');drawCats();
 function openRoom(r){
  room=r;lastSig='';
  $('rn').textContent=r.name;$('rd').textContent=dsc(r)||'Oluşturan: '+r.owner;
@@ -840,11 +950,9 @@ function pfDraw(){
  const mb=(f,k)=>`<button class="pa" data-a="mb" data-id="${f.id}" data-u="${esc(f.u)}" title="${esc(f.u)}">${esc(f.u[0].toUpperCase())}</button>`;
  const cards=CATS.map(c=>`<div class="fc" style="background:linear-gradient(135deg,${c[3]})"><div class="fh"><span>${c[2]}</span><b>${c[1]}</b><button class="pl" data-a="add" data-k="friend" data-c="${c[0]}">+</button></div><div class="fm">${d.friends.filter(f=>f.kind=='friend'&&f.cat==c[0]).map(mb).join('')}</div></div>`).join('');
  const gu=d.friends.filter(f=>f.kind=='guard');
- const inbox=own&&d.inbox.length?`<div class="sc"><div class="sh">İstekler <small>${d.inbox.length}</small></div>${d.inbox.map(i=>`<div class="row"><div>${esc(i.a)}<br><small>${i.kind=='guard'?'Koruma isteği':'Arkadaşlık: '+(CATS.find(c=>c[0]==i.cat)||['','?'])[1]}</small></div><div><button class="btn sm" data-a="inb" data-id="${i.id}" data-ok="1">Kabul</button> <button class="dl" data-a="inb" data-id="${i.id}" data-ok="0">Reddet</button></div></div>`).join('')}</div>`:'';
  $('pf').innerHTML=`<div class="pw"><div class="cv" data-a="cover" style="${d.cover?`background-image:url(${d.cover})`:''}"><div class="tb"><button class="ib" data-a="x">←</button><span>${own?'<button class="ib" data-a="covch">📷</button> <button class="ib" data-a="edit">⚙</button>':`<button class="ib" data-a="blk">${d.blockedByMe?'🚫':'⋯'}</button>`}</span></div></div>
  <div class="pc"><div class="pav">${av}</div><div class="pn">${esc(d.u)} ${esc(d.emoji)} ${d.gender=='m'?'♂':d.gender=='f'?'♀':''}</div>
  <div class="tg"><span class="lv">Lv.${lv}</span><span>🏅 ${rk}</span><span>${flag(d.country)} ${cn}</span><span>ID: ${d.uid?100000+Number(d.uid):'—'} <button class="ghost" style="padding:0 6px;font-size:12px" data-a="copy">⧉</button></span></div>
- ${inbox}
  <div class="sc"><div class="sh" data-a="mems">Anılar <small>${d.mcount} ›</small></div>${d.mems.length?`<div class="rw" style="margin-top:6px">${esc(d.mems[0].body.slice(0,70))}</div>`:'<div class="rw" style="margin-top:6px">Henüz anı yok.</div>'}</div>
  <div class="sc"><div class="sh" data-a="gifts">Hediye Duvarı <small>${d.gcount} Hediye · ${d.stars} Yıldız ›</small></div><div class="gi">${d.gifts.slice(0,8).map(g=>`<span>${gOf(g.code)[1]}</span>`).join('')||'<span class="rw" style="width:auto;background:none;font-size:13px">Henüz hediye yok.</span>'}</div></div>
  <div class="sc"><div class="sh">Şahsi İmza ${own?'<button class="ghost" data-a="sig">Düzenle</button>':''}</div><div class="rw" style="margin-top:6px;font-size:14px">${esc(d.sig)||'Bu kişi hiçbir şey söylemiyor!'}</div></div>
@@ -887,11 +995,11 @@ const PA={
   $('mc').querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{gsel=gOf(b.dataset.g);$('mc').querySelectorAll('.gg button').forEach(x=>x.classList.toggle('on',x==b));$('gs2').disabled=false;$('gs2').textContent=gsel[2]+' gönder · '+gsel[3]+' altın';$('ge').textContent=''});
   $('gs2').onclick=async()=>{if(!gsel)return;if((st?+st.gold:0)<gsel[3]){$('ge').textContent='Yetersiz bakiye.';return}$('gs2').disabled=true;
    try{await rpc('gift_send',{...cred(),p_target:P.u,p_code:gsel[0]});await refreshStats();closeM();tw('Hediye gönderildi 🎁');openPF(P.u)}catch(e){$('ge').textContent=e.message;$('gs2').disabled=false}}},
- dm:()=>openDM(P.u)
+ dm:()=>openChat(P.u)
 };
 $('pf').onclick=e=>{const b=e.target.closest('[data-a]');if(b&&PA[b.dataset.a])PA[b.dataset.a](b)};
 $('cf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!P||!P.me)return;try{await setP({p_cover:await shrinkC(f)});openPF(me.u)}catch(er){pfErr(er)}};
-document.addEventListener('click',e=>{const t=e.target.closest('[data-pf]');if(t){e.preventDefault();closeM();openPF(t.dataset.pf)}});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-pf]');if(t){e.preventDefault();closeM();closeChat();openPF(t.dataset.pf)}});
 async function openDM(u){
  modal(`<h3>@${esc(u)}</h3><div id="dl" style="height:260px;overflow:auto;display:flex;flex-direction:column;gap:8px"></div><div class="addf" style="margin-top:10px"><input id="di" maxlength="300" placeholder="Mesaj yaz…" autocomplete="off"><button class="btn sm" id="ds">Gönder</button></div><div class="err" id="de"></div>`);
  const L=async()=>{if(!$('dl')){clearInterval(window._dm);return}try{const d=await rpc('dm_get',{...cred(),p_target:u});$('dl').innerHTML=d.length?d.map(m=>`<div class="m ${m.a.toLowerCase()==me.u.toLowerCase()?'me':''}" style="max-width:85%"><div class="b">${esc(m.body)}</div></div>`).join(''):'<div class="empty">Henüz mesaj yok.</div>';$('dl').scrollTop=1e9}catch(e){$('dl').textContent=setupMsg(e)}};
@@ -900,7 +1008,414 @@ async function openDM(u){
  L();clearInterval(window._dm);window._dm=setInterval(L,4000);
 }
 $('av').onclick=()=>openPF(me.u);
-document.querySelectorAll('.gc').forEach(b=>b.onclick=()=>{if(b.dataset.g=='domino')openDomino()});
+
+/* ===== Mesajlar + Keşfet ===== */
+const escA=s=>esc(s).replace(/"/g,'&quot;');
+const isMe=a=>!!me&&String(a||'').toLowerCase()==me.u.toLowerCase();
+const CN=()=>me.cn||me.u;
+const ltr=s=>esc(String(s||'?')[0].toUpperCase());
+function agoS(t){const s=Math.max(0,(Date.now()-new Date(t).getTime())/1000);if(s<60)return 'az önce';if(s<3600)return Math.floor(s/60)+' dk';if(s<86400)return Math.floor(s/3600)+' sa';if(s<604800)return Math.floor(s/86400)+' g';return new Date(t).toLocaleDateString('tr-TR')}
+const kMsg=e=>/Could not find|schema cache|does not exist/i.test(e.message)?'Keşfet için Supabase kurulumu (halka_kesfet.sql) gerekli.':e.message;
+const catName=c=>(CATS.find(x=>x[0]==c)||['','Arkadaş'])[1];
+
+/* arkadaşlık istekleri + bildirim */
+let RQ=[],RF=[],HF=[],MYF=new Set(),SENT=new Set(),rqSeen=null;
+async function pollReq(){
+ if(!me)return;
+ try{
+  const d=await rpc('prof_get',{...cred(),p_target:me.u});
+  if(d.u)me.cn=d.u;
+  RQ=d.inbox||[];RF=(d.friends||[]).filter(f=>f.kind=='friend');
+  MYF=new Set(RF.map(f=>f.u.toLowerCase()));
+  if(rqSeen!==null&&RQ.length>rqSeen)tw('Yeni arkadaşlık isteği 👋');
+  rqSeen=RQ.length;paintReq();
+ }catch(e){}
+}
+function paintReq(){
+ const n=RQ.length,t=n>9?'9+':String(n);
+ [$('rqb'),$('nbm')].forEach(b=>{if(!b)return;b.textContent=t;b.classList.toggle('hide',!n)});
+}
+(function(){const m=document.querySelector('#bn [data-t=m]');if(m)m.insertAdjacentHTML('beforeend','<i class="bdg hide" id="nbm"></i>')})();
+function openReqs(){modal('<h3>Arkadaşlık istekleri</h3><div id="rql"></div>');drawReqs();pollReq().then(drawReqs)}
+function drawReqs(){
+ const b=$('rql');if(!b)return;
+ b.innerHTML=RQ.length?RQ.map(i=>`<div class="row"><div><a href="#" data-pf="${escA(i.a)}" style="color:inherit;font-weight:600">@${esc(i.a)}</a><br><small>${i.kind=='guard'?'Koruma isteği':'Arkadaşlık: '+esc(catName(i.cat))}</small></div><div><button class="btn sm" data-r="${i.id}" data-ok="1">Kabul</button> <button class="dl" data-r="${i.id}" data-ok="0">Reddet</button></div></div>`).join(''):'<div class="empty" style="padding:26px 0">Bekleyen istek yok.</div>';
+ b.querySelectorAll('[data-r]').forEach(x=>x.onclick=async()=>{x.disabled=true;
+  try{await rpc('rel_resp',{...cred(),p_id:+x.dataset.r,p_ok:x.dataset.ok=='1'});tw(x.dataset.ok=='1'?'Arkadaş eklendi 🎉':'İstek reddedildi');await pollReq();drawReqs();if(!$('hubM').classList.contains('hide'))loadMsgList()}
+  catch(e){tw(setupMsg(e));x.disabled=false}});
+}
+$('rq').onclick=openReqs;
+
+/* mesajlar: arkadaş listesi */
+async function loadMsgList(){
+ const box=$('mlist');if(!box)return;
+ if(!box.innerHTML)box.innerHTML='<div class="empty" style="padding:30px 0">Yükleniyor…</div>';
+ const [hf]=await Promise.all([rpc('halka_friends',cred()).catch(()=>[]),pollReq()]);
+ HF=hf||[];
+ const map=new Map();
+ HF.forEach(f=>map.set(f.username.toLowerCase(),{u:f.username,online:!!f.online,sub:seenTxt(f)}));
+ RF.forEach(f=>{const k=f.u.toLowerCase();if(!map.has(k))map.set(k,{u:f.u,online:false,sub:catName(f.cat)})});
+ const list=[...map.values()].sort((a,b)=>(b.online-a.online)||a.u.localeCompare(b.u,'tr'));
+ box.innerHTML=list.length?list.map(f=>`<div class="fro" data-chat="${escA(f.u)}"><div class="ra">${ltr(f.u)}</div><div class="nmx"><b>${esc(f.u)}</b><small>${esc(f.sub)}</small></div><i class="dot ${f.online?'on':''}"></i></div>`).join(''):'<div class="empty" style="padding:50px 20px">Henüz arkadaşın yok.<br>Keşfet bölümünden veya profillerden arkadaş ekleyebilirsin.</div>';
+}
+$('mlist').onclick=e=>{const r=e.target.closest('[data-chat]');if(r)openChat(r.dataset.chat)};
+
+/* birebir sohbet */
+let CHU=null,CHS='';
+function closeChat(){clearInterval(window._ch);CHU=null;CHS='';const v=$('dmv');v.classList.add('hide');v.innerHTML=''}
+function openChat(u){
+ closeChat();CHU=u;
+ const v=$('dmv');v.classList.remove('hide');
+ v.innerHTML=`<div class="gph"><button class="ghost" id="cbk">←</button><button class="pa" data-pf="${escA(u)}">${ltr(u)}</button><b data-pf="${escA(u)}" style="cursor:pointer">@${esc(u)}</b></div><div class="cml" id="cml"><div class="empty">Yükleniyor…</div></div><form class="send" id="cfm"><input id="cin" maxlength="300" placeholder="Mesaj yaz…" autocomplete="off"><button class="btn">Gönder</button></form>`;
+ $('cbk').onclick=closeChat;
+ let first=true;
+ const L=async()=>{
+  if(CHU!==u||!$('cml'))return;
+  try{
+   const d=await rpc('dm_get',{...cred(),p_target:u})||[];
+   if(CHU!==u||!$('cml'))return;
+   const sig=d.length+'|'+(d.length?d[d.length-1].body:'');if(sig===CHS)return;CHS=sig;
+   const box=$('cml'),near=first||box.scrollHeight-box.scrollTop-box.clientHeight<90;
+   box.innerHTML=d.length?d.map(m=>`<div class="m ${isMe(m.a)?'me':''}"><div class="b">${esc(m.body)}</div>${m.created_at?`<div class="tm">${agoS(m.created_at)}</div>`:''}</div>`).join(''):'<div class="empty">Henüz mesaj yok. İlk mesajı sen yaz 👋</div>';
+   if(near)box.scrollTop=box.scrollHeight;first=false;
+  }catch(e){const box=$('cml');if(box&&first)box.innerHTML='<div class="empty">'+esc(setupMsg(e))+'</div>'}
+ };
+ $('cfm').onsubmit=async ev=>{
+  ev.preventDefault();const i=$('cin'),b=i.value.trim();if(!b)return;
+  i.value='';
+  try{await rpc('dm_send',{...cred(),p_target:u,p_body:b});CHS='';await L()}catch(e){tw(setupMsg(e));i.value=b}
+  i.focus();
+ };
+ L();clearInterval(window._ch);window._ch=setInterval(L,3000);
+}
+
+/* keşfet: anı akışı */
+let KF={items:[],more:true,loading:false},KI=null;
+const shrinkK=f=>new Promise((ok,no)=>{const i=new Image(),u=URL.createObjectURL(f);i.onload=()=>{const m=720,r=Math.min(1,m/Math.max(i.width,i.height)),w=Math.round(i.width*r),h=Math.round(i.height*r),c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(i,0,0,w,h);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',.7))};i.onerror=()=>no(new Error('Görsel okunamadı'));i.src=u});
+const isFr=u=>{const k=String(u).toLowerCase();return MYF.has(k)||HF.some(f=>f.username.toLowerCase()==k)};
+function addBtn(a){return isMe(a)?'':isFr(a)?'<span class="rw">Arkadaş ✓</span>':SENT.has(a.toLowerCase())?'<span class="rw">İstek gönderildi</span>':`<button class="btn sm" data-k="add" data-u="${escA(a)}">+ Arkadaş</button>`}
+function postHTML(p){
+ return `<article class="kp" data-id="${p.id}"><div class="kh"><button class="pa" data-pf="${escA(p.author)}">${ltr(p.author)}</button><div class="kn"><b data-pf="${escA(p.author)}">@${esc(p.author)}</b><small>${agoS(p.created_at)}</small></div><span class="kx">${addBtn(p.author)}</span>${isMe(p.author)?'<button class="dl" data-k="del">Sil</button>':''}</div>${p.img?`<img class="ki" loading="lazy" src="${escA(p.img)}">`:''}${p.body?`<p class="kb">${esc(p.body)}</p>`:''}<div class="ka"><button data-k="like" class="${p.liked?'on':''}"><i>${p.liked?'♥':'♡'}</i><span>${p.likes}</span></button><button data-k="cmt"><i>💬</i><span>${p.comments}</span></button></div></article>`;
+}
+function drawFeed(){
+ const box=$('kfeed');if(!box)return;
+ box.innerHTML=KF.items.length?KF.items.map(postHTML).join('')+(KF.more?'<button class="ghost" data-k="more" style="align-self:center;padding:8px 22px">Daha fazla</button>':''):'<div class="empty" style="padding:50px 20px">📷<br>Henüz paylaşılan anı yok.<br>İlk anıyı sen paylaş!</div>';
+}
+async function loadFeed(reset){
+ if(KF.loading)return;KF.loading=true;
+ const box=$('kfeed');
+ if(reset){KF.items=[];KF.more=true;box.innerHTML='<div class="empty" style="padding:40px 0">Yükleniyor…</div>'}
+ try{
+  const before=KF.items.length?KF.items[KF.items.length-1].id:null;
+  const [d]=await Promise.all([rpc('hk_feed',{...cred(),p_before:before,p_limit:12}),reset?pollReq():0,reset?rpc('halka_friends',cred()).then(x=>{HF=x||[]}).catch(()=>{}):0]);
+  const rows=d||[];KF.items=KF.items.concat(rows);KF.more=rows.length>=12;drawFeed();
+ }catch(e){box.innerHTML='<div class="empty" style="padding:40px 20px">'+esc(kMsg(e))+'</div>'}
+ KF.loading=false;
+}
+$('kr').onclick=()=>loadFeed(true);
+$('kn').onclick=()=>openCompose();
+function openCompose(){
+ KI=null;
+ modal('<h3>Anı paylaş</h3><textarea id="kt" rows="4" maxlength="500" placeholder="Anını yaz…"></textarea><div class="kpv" id="kpv"></div><div style="display:flex;gap:8px;margin:8px 0 12px"><button class="ghost" id="kph" type="button">📷 Fotoğraf ekle</button><button class="ghost hide" id="kpx" type="button">Kaldır</button></div><div class="err" id="kte"></div><button class="btn" id="kps">Paylaş</button>');
+ $('kph').onclick=()=>$('kf').click();
+ $('kpx').onclick=()=>{KI=null;$('kpv').innerHTML='';$('kpx').classList.add('hide')};
+ $('kps').onclick=async()=>{
+  const t=$('kt').value.trim();$('kte').textContent='';
+  if(!t&&!KI){$('kte').textContent='Bir yazı yaz ya da fotoğraf ekle.';return}
+  $('kps').disabled=true;
+  try{await rpc('hk_post_add',{...cred(),p_author:CN(),p_body:t,p_img:KI});closeM();tw('Anı paylaşıldı ✨');loadFeed(true)}
+  catch(e){$('kte').textContent=kMsg(e);$('kps').disabled=false}
+ };
+}
+$('kf').onchange=async e=>{
+ const f=e.target.files[0];e.target.value='';if(!f||!$('kpv'))return;
+ try{KI=await shrinkK(f);$('kpv').innerHTML='<img src="'+escA(KI)+'">';$('kpx').classList.remove('hide')}catch(er){if($('kte'))$('kte').textContent=er.message}
+};
+function openAddF(u){
+ modal(`<h3>@${esc(u)} kişisini ekle</h3><p class="rw" style="margin-bottom:10px">Arkadaşlık türünü seç:</p>${CATS.map(c=>`<button class="btn" data-c="${c[0]}" style="margin-bottom:8px;background:linear-gradient(135deg,${c[3]})">${c[2]} ${c[1]}</button>`).join('')}<div class="err" id="afe"></div>`);
+ $('mc').querySelectorAll('[data-c]').forEach(b=>b.onclick=async()=>{
+  b.disabled=true;
+  try{await rpc('rel_req',{...cred(),p_kind:'friend',p_cat:b.dataset.c,p_target:u});SENT.add(u.toLowerCase());closeM();tw('İstek gönderildi');
+   document.querySelectorAll('#kfeed .kp').forEach(a=>{const p=KF.items.find(x=>x.id==a.dataset.id);if(p&&p.author.toLowerCase()==u.toLowerCase())a.querySelector('.kx').innerHTML=addBtn(p.author)})}
+  catch(e){$('afe').textContent=setupMsg(e);b.disabled=false}
+ });
+}
+async function openCmts(id){
+ const it=KF.items.find(x=>x.id==id);
+ modal('<h3>Yorumlar</h3><div id="kcl" style="max-height:48vh;overflow:auto"><div class="empty" style="padding:20px 0">Yükleniyor…</div></div><div class="addf" style="margin-top:12px"><input id="kci" maxlength="300" placeholder="Yorum yaz…" autocomplete="off"><button class="btn sm" id="kcs">Gönder</button></div><div class="err" id="kce"></div>');
+ const sync=n=>{if(it){it.comments=n;const a=document.querySelector('#kfeed .kp[data-id="'+id+'"] [data-k=cmt] span');if(a)a.textContent=n}};
+ const L=async()=>{
+  const b=$('kcl');if(!b)return;
+  try{
+   const d=await rpc('hk_comments',{...cred(),p_post:id})||[];if(!$('kcl'))return;
+   sync(d.length);
+   b.innerHTML=d.length?d.map(c=>`<div class="row"><div style="min-width:0"><a href="#" data-pf="${escA(c.author)}" style="color:inherit;font-weight:600">@${esc(c.author)}</a> <span style="word-wrap:break-word">${esc(c.body)}</span><br><small>${agoS(c.created_at)}</small></div>${isMe(c.author)||(it&&isMe(it.author))?`<button class="dl" data-cd="${c.id}">Sil</button>`:''}</div>`).join(''):'<div class="empty" style="padding:20px 0">Henüz yorum yok. İlk yorumu sen yaz!</div>';
+   b.querySelectorAll('[data-cd]').forEach(x=>x.onclick=async()=>{try{await rpc('hk_comment_del',{...cred(),p_comment:+x.dataset.cd});L()}catch(e){tw(kMsg(e))}});
+  }catch(e){b.innerHTML='<div class="empty">'+esc(kMsg(e))+'</div>'}
+ };
+ const S=async()=>{
+  const i=$('kci'),t=i.value.trim();if(!t)return;$('kce').textContent='';$('kcs').disabled=true;
+  try{await rpc('hk_comment_add',{...cred(),p_post:id,p_author:CN(),p_body:t});i.value='';await L();const b=$('kcl');if(b)b.scrollTop=b.scrollHeight}
+  catch(e){if($('kce'))$('kce').textContent=kMsg(e)}
+  if($('kcs'))$('kcs').disabled=false;
+ };
+ $('kcs').onclick=S;$('kci').addEventListener('keydown',e=>{if(e.key==='Enter')S()});
+ L();
+}
+$('kfeed').onclick=async e=>{
+ const b=e.target.closest('[data-k]');if(!b)return;
+ const card=b.closest('.kp'),id=card?+card.dataset.id:0,it=KF.items.find(x=>x.id==id),k=b.dataset.k;
+ if(k=='more'){loadFeed(false)}
+ else if(k=='add')openAddF(b.dataset.u);
+ else if(k=='cmt')openCmts(id);
+ else if(k=='like'&&it){
+  b.disabled=true;
+  try{const r=await rpc('hk_like',{...cred(),p_post:id});it.liked=r.liked;it.likes=r.likes;b.classList.toggle('on',r.liked);b.querySelector('i').textContent=r.liked?'♥':'♡';b.querySelector('span').textContent=r.likes}
+  catch(er){tw(kMsg(er))}
+  b.disabled=false;
+ }else if(k=='del'&&it){
+  if(!confirm('Bu anı silinsin mi?'))return;
+  try{await rpc('hk_post_del',{...cred(),p_post:id});KF.items=KF.items.filter(x=>x.id!=id);card.remove();if(!KF.items.length)drawFeed()}
+  catch(er){tw(kMsg(er))}
+ }
+};
+/* ===== UNO ===== */
+const UCS={r:'#E4504A',y:'#F2B632',g:'#3FA86B',b:'#3D7FE0'},UCN={r:'Kırmızı',y:'Sarı',g:'Yeşil',b:'Mavi'},USYM={s:'⊘',r:'⇄',d:'+2',w:'★',f:'+4'};
+const UPT=c=>/\d/.test(c.v)?+c.v:(c.c=='w'?50:20);
+let U=null;
+function uShuf(a){for(let i=a.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[k];a[k]=x}return a}
+function uDeck(){const d=[];['r','y','g','b'].forEach(c=>{d.push({c:c,v:'0'});for(let i=1;i<=9;i++){d.push({c:c,v:''+i});d.push({c:c,v:''+i})}['s','r','d'].forEach(v=>{d.push({c:c,v:v});d.push({c:c,v:v})})});for(let i=0;i<4;i++){d.push({c:'w',v:'w'});d.push({c:'w',v:'f'})}return uShuf(d)}
+const USV={s:'<svg viewBox="0 0 40 40" fill="none" stroke-linecap="round"><circle cx="20" cy="20" r="13" stroke="#fff" stroke-width="5"/><line x1="11" y1="29" x2="29" y2="11" stroke="#fff" stroke-width="5"/></svg>',r:'<svg viewBox="0 0 40 40"><g transform="rotate(-40 20 20)" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"><polygon points="5,11 20,11 20,6 33,15 20,24 20,19 5,19"/><polygon transform="rotate(180 20 20)" points="5,11 20,11 20,6 33,15 20,24 20,19 5,19"/></g></svg>',d:'<svg viewBox="0 0 40 40"><g stroke="#fff" stroke-width="2.5" fill="var(--cc)" stroke-linejoin="round"><rect x="7" y="9" width="16" height="22" rx="3" transform="rotate(-14 15 20)"/><rect x="17" y="10" width="16" height="22" rx="3" transform="rotate(12 25 21)"/></g></svg>',f:'<svg viewBox="0 0 40 40"><g stroke="#fff" stroke-width="2" stroke-linejoin="round"><rect x="4" y="13" width="13" height="19" rx="2.5" fill="#E02B25" transform="rotate(-22 10 22)"/><rect x="10" y="9" width="13" height="19" rx="2.5" fill="#1E6BE0" transform="rotate(-7 16 18)"/><rect x="17" y="9" width="13" height="19" rx="2.5" fill="#1FAA3C" transform="rotate(8 23 18)"/><rect x="24" y="12" width="13" height="19" rx="2.5" fill="#F5BE1B" transform="rotate(22 30 21)"/></g></svg>'};
+const UCR={s:'⊘',r:'⇅',d:'+2',f:'+4'};
+function uFace(c){
+ const v=c.v,n=/\d/.test(v);
+ const ct=n?`<b class="nm${v=='6'||v=='9'?' ul':''}">${v}</b>`:(USV[v]||''),cn=n?v:(v=='w'?'<i class="wd"></i>':UCR[v]);
+ return `<i class="cn tl">${cn}</i><span class="el"></span><div class="ct">${ct}</div><i class="cn br">${cn}</i>`;
+}
+const uCard=(c,cls,ex)=>`<div class="uc c${c.c}${c.v=='f'?' vf':''} ${cls||''}" ${ex||''}>${uFace(c)}</div>`;
+const uBack=(cls,ex)=>`<div class="uc cx ${cls||''}" ${ex||''}><span class="el"></span><div class="ct"><b class="ub">UNO</b></div></div>`;
+SND.ucard=function(){this.puff('highpass',2800,.7,.06,.38);this.blip(950,320,.08,.1,'triangle')};
+SND.riffle=function(){for(let i=0;i<34;i++){const at=i*.07+(i%2)*.02;this.puff('highpass',2200+(i%17)*160,.8,.045,.3,at);if(i%6==0)this.blip(180+i*4,90,.07,.12,'sine',at)}this.blip(150,60,.25,.3,'sine',2.45)};
+const uCan=c=>c.c=='w'||c.c==U.col||(U.top.c!='w'&&c.v==U.top.v);
+const uAny=p=>U.hands[p].some(uCan);
+const uTime=g=>{const s=g.end?Math.max(0,Math.ceil((g.end-Date.now())/1000)):300;return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const unClose=()=>{if(U)clearInterval(U.iv);U=null;dmClose()};
+function uTake(p,k){let got=0;for(let i=0;i<k;i++){if(!U.deck.length&&U.disc.length>1){const t=U.disc.pop();U.deck=uShuf(U.disc);U.disc=[t]}if(!U.deck.length)break;U.hands[p].push(U.deck.pop());got++}if(p==0){U.freshN+=got;if(U.hands[0].length>=2)U.uno=false}return got}
+function openUno(){$('gp').classList.remove('hide');unModes()}
+function unModes(){
+ if(U)clearInterval(U.iv);U=null;
+ $('gp').innerHTML=`<div class="gph"><button class="ghost" id="gb">←</button><b>Uno</b>${sndBtn()}<span class="gold">${COIN}<b id="gg">${st?st.gold:0}</b></span></div>
+ <div class="gpb"><div class="dm-hero" style="background:linear-gradient(135deg,#E4504A,#B3261E)">${document.querySelector('[data-g=uno] svg').outerHTML}</div>
+ <p class="rw" style="text-align:center">Her oyun 5 dakika. Süre dolarsa elinde en az puan kalan kazanır.</p>
+ <p class="gl">Ücretsiz</p>
+ <div class="mg"><button class="mb" data-n="2" data-p="0"><b>2 Kişilik</b><small>Ücretsiz</small></button><button class="mb" data-n="4" data-p="0"><b>4 Kişilik</b><small>Ücretsiz</small></button></div>
+ <p class="gl">Ücretli</p>
+ <div class="mg"><button class="mb paid" data-n="2" data-p="1"><b>2 Kişilik</b><small>${COIN} 10 Altın</small><span class="rw">Kazanana 20 altın</span></button><button class="mb paid" data-n="4" data-p="1"><b>4 Kişilik</b><small>${COIN} 20 Altın</small><span class="rw">Kazanana 80 altın</span></button></div>
+ <p class="rw" style="text-align:center;margin-top:4px">Rakipler bilgisayar (bot) oyuncularıdır.</p></div>`;
+ $('gb').onclick=unClose;sndBind();
+ $('gp').querySelectorAll('.mb').forEach(b=>b.onclick=()=>unStart(+b.dataset.n,b.dataset.p=='1'));
+}
+async function unStart(n,paid){
+ const fee=paid?(n==2?10:20):0;
+ if(paid&&st&&+st.gold<fee){alert('Yeterli altının yok. Gerekli: '+fee+' altın.');return}
+ const bs=$('gp').querySelectorAll('.mb,#gb,.res button');bs.forEach(b=>b.disabled=true);
+ let gid=null;
+ if(paid){try{const r=await rpc('halka_game_start',{...cred(),p_game:'uno',p_players:n,p_paid:true});gid=r.id;await refreshStats()}
+  catch(e){alert(setupMsg(e));bs.forEach(b=>b.disabled=false);return}}
+ unBegin(n,paid,fee,gid);
+}
+function unBegin(n,paid,fee,gid){
+ if($('gp').classList.contains('hide'))return;
+ const names=['Sen','Bot Ali','Bot Ayşe','Bot Can'].slice(0,n),deck=uDeck(),hands=[];
+ for(let p=0;p<n;p++)hands.push(deck.splice(-7));
+ let k=deck.length-1;while(deck[k].c=='w')k--;
+ const top=deck.splice(k,1)[0];top.rot=(Math.random()*30-15)|0;
+ const g=U={n:n,paid:paid,fee:fee,gid:gid,names:names,hands:hands,deck:deck,disc:[top],top:top,col:top.c,dir:1,turn:0,over:false,drew:false,pick:null,msg:'',res:null,prize:null,err:'',phase:'shuffle',fresh:null,freshN:0,end:0,banner:false,shake:false,iv:null};
+ SND.init();SND.riffle();uRender();
+ setTimeout(()=>{
+  if(U!==g||g.over)return;
+  g.phase='deal';SND.deal(7*n);uRender();
+  setTimeout(()=>{
+   if(U!==g||g.over)return;
+   g.phase='';g.msg='Oyun başladı! İlk hamle sende.';g.end=Date.now()+300000;
+   g.iv=setInterval(()=>{if(U!==g||g.over){clearInterval(g.iv);return}const e=$('ut');if(e){e.textContent=uTime(g);e.style.color=g.end-Date.now()<=30000?'#FF6B6B':''}if(Date.now()>=g.end)uEnd(null)},500);
+   g.fresh='bot';SND.ucard();uRender();uNext();
+  },7*n*80+700);
+ },3300);
+}
+function uRender(){
+ const g=U;if(!g)return;
+ const ph=g.phase,my=g.turn==0&&!g.over&&!ph,any=my&&uAny(0);
+ const opp=g.names.slice(1).map((nm,k)=>{const p=k+1,c=g.hands[p].length;return `<div class="op ${g.turn==p&&!g.over&&!ph?'on':''}"><span class="oa">${nm.replace('Bot ','')[0]}</span><div><b>${nm}</b><small>${c} kart</small><div class="mb2">${Array.from({length:Math.min(c,9)},(_,r)=>ph=='deal'?`<i class="dl" style="animation-delay:${(r*g.n+p)*80+480}ms"></i>`:'<i></i>').join('')}</div></div></div>`}).join('');
+ const tm=`<div class="utm" id="ut">${uTime(g)}</div><div class="ucg"></div>`;
+ let mid;
+ if(ph=='shuffle')mid=`<div class="utab">${tm}<div class="rif">${Array.from({length:18},(_,k)=>`<i class="rf" style="--s:${k%2?-1:1};--k:${k};animation-delay:${k*.055}s"></i>`).join('')}</div></div>`;
+ else if(ph=='deal'){
+  let fl='';
+  for(let r=0;r<7;r++)for(let p=0;p<g.n;p++){
+   const rt=p==0?0:(Math.random()*50-25)|0;
+   fl+=`<i class="fly" data-p="${p}" data-r="${r}" style="--rt:${rt}deg;--sc:${p==0?1.26:.3};animation-delay:${(r*g.n+p)*80}ms"></i>`}
+  mid=`<div class="utab">${tm}<div class="upile"><div class="dp">${uBack('','style="position:absolute;left:0;top:0;--w:70px"')}</div><small>${g.deck.length} kart</small></div>${fl}</div>`;
+ }else{
+  const dp=g.disc.slice(-3).map((c,k,a)=>uCard(c,k==a.length-1?(g.fresh=='me'?'dropme':g.fresh=='bot'?'dropbot':''):'',`style="--w:70px;position:absolute;left:0;top:0;--rot:${c.rot||0}deg;transform:rotate(${c.rot||0}deg)"`)).join('');
+  mid=`<div class="utab ${g.shake?'shk':''}" style="--tc:${UCS[g.col]}">${tm}<div class="upile ${my&&!any&&!g.drew?'hint':''}" id="ud"><div class="dp">${uBack('','style="position:absolute;left:0;top:0;--w:70px"')}</div><small>Deste · ${g.deck.length}</small></div><div class="upile">${g.fresh?'<i class="burst"></i>':''}<div class="dp">${dp}${g.top.c=='w'?`<i class="wcd" style="background:${UCS[g.col]}"></i>`:''}</div><small><i class="dirm ${g.dir<0?'rv':''}">↻</i> ${UCN[g.col]}</small></div></div>`;
+ }
+ g.fresh=null;g.shake=false;
+ const fn=g.freshN,len=g.hands[0].length;g.freshN=0;
+ const hand=ph=='shuffle'?'':g.hands[0].map((c,i)=>uCard(c,(my?(uCan(c)?'ok':'no'):'')+(ph=='deal'?' deal':'')+(fn&&i>=len-fn?' fresh':''),`data-i="${i}"`+(ph=='deal'?` style="animation-delay:${i*g.n*80+480}ms"`:''))).join('');
+ let status=g.msg;
+ if(ph=='shuffle')status='Kartlar karıştırılıyor…';else if(ph=='deal')status='Kartlar dağıtılıyor…';
+ else if(my&&g.pick!==null)status='Bir renk seç.';
+ else if(my&&g.drew)status+=' Çektiğin kartı oynayabilir ya da pas geçebilirsin.';
+ else if(my&&any)status+=' Sıra sende.';
+ else if(my)status+=' Oynayacak kartın yok, desteden çek.';
+ let ctl='';
+ if(my&&g.pick!==null)ctl=`<div class="sd">${['r','y','g','b'].map(c=>`<button class="btn" data-col="${c}" style="background:${UCS[c]}">${UCN[c]}</button>`).join('')}</div>`;
+ else if(my&&g.drew)ctl='<button class="btn" id="up">Pas geç</button>';
+ let res='';
+ if(g.res){
+  const title=g.res=='won'?'Kazandın!':g.res=='draw'?'Berabere':'Kaybettin';let det='';
+  if(g.paid){if(g.err)det=g.err;else if(g.res=='won')det=g.prize!=null?'+'+g.prize+' altın kazandın.':'Ödül işleniyor…';else if(g.res=='draw')det=g.prize!=null?'Giriş ücretin ('+g.prize+' altın) iade edildi.':'İade işleniyor…';else det='Giriş ücretin ('+g.fee+' altın) yandı.'}
+  res=`<div class="ov" style="position:absolute"><div class="card res" style="text-align:center"><h3>${title}</h3><p class="sub" style="margin-bottom:16px">${g.msg}${det?'<br>'+det:''}</p><button class="btn" id="ga" style="margin-bottom:10px">Tekrar oyna</button><button class="ghost" id="gm" style="width:100%">Menü</button></div></div>`;
+ }
+ const l0=g.hands[0].length,unr=(!ph&&!g.over)?`<div class="unr"><button class="unob${(g.unoPend||(l0<=2&&!g.uno))?' hot':''}${g.uno?' on':''}" id="uno">UNO!</button></div>`:'';
+ const bn=g.banner?'<div class="ubn">UNO!</div>':'';g.banner=false;
+ $('gp').innerHTML=`<div class="gph"><button class="ghost" id="gb">←</button><b>Uno · ${g.n} kişilik${g.paid?' · ücretli':''}</b>${sndBtn()}<span class="gold">${COIN}<b id="gg">${st?st.gold:0}</b></span></div>
+ <div class="gpb rel"><div class="ops">${opp}</div><div class="uw">${mid}</div><div class="stt">${status}</div>${ctl}${unr}<div class="seat ${my?'on':''}"><i class="cb"></i><i class="cs"></i><i class="cl l"></i><i class="cl r"></i><div class="uh">${hand}</div><span class="mt">Sen · ${len} kart</span></div>${bn}</div>${res}`;
+ $('gb').onclick=unLeave;sndBind();
+ uFit();if(ph=='deal')uFly();
+ if($('uno'))$('uno').onclick=uUnoClick;
+ const ud=$('ud');if(ud)ud.onclick=uDrawClick;
+ $('gp').querySelectorAll('.uh .uc.ok').forEach(el=>el.onclick=()=>uPick(+el.dataset.i));
+ $('gp').querySelectorAll('.uh .uc.no').forEach(el=>el.onclick=()=>SND.nope());
+ $('gp').querySelectorAll('[data-col]').forEach(b=>b.onclick=()=>{const i=g.pick;g.pick=null;uPlay(0,i,b.dataset.col)});
+ if($('up'))$('up').onclick=()=>{if(U!==g||g.over||g.turn!=0)return;SND.pass();uPass(g,'Pas geçtin.')};
+ if($('ga'))$('ga').onclick=()=>unStart(g.n,g.paid);
+ if($('gm'))$('gm').onclick=unModes;
+}
+function uFit(){
+ const h=document.querySelector('.uh');if(!h||h.children.length<2)return;
+ const cs=getComputedStyle(h),av=h.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),w=h.children[0].offsetWidth,n=h.children.length;
+ h.style.setProperty('--ml',(Math.min(w/2,(av-w)/(n-1))-w)+'px');
+}
+function uUnoClick(){
+ const g=U;if(!g||g.over||g.phase)return;
+ const l=g.hands[0].length;
+ if(l>2){g.msg='UNO demek için henüz erken.';SND.nope();uRender();return}
+ if(g.uno)return;
+ g.uno=true;
+ if(g.unoPend){g.unoPend=false;g.banner=true;g.msg='Sen UNO!';[660,880,1100].forEach((f,j)=>SND.blip(f,f,.14,.14,'triangle',j*.09))}
+ else{g.msg='UNO hazır! Bir kartını oyna.';SND.tick()}
+ uRender();
+}
+function uUnoPenalty(g){
+ if(U!==g||g.over||!g.unoPend)return;
+ g.unoPend=false;
+ if(g.hands[0].length!=1)return;
+ const k=uTake(0,2);
+ g.msg='UNO demedin! Ceza: '+k+' kart çektin.';SND.nope();SND.deal(2);uRender();
+}
+function uFly(){
+ const R=e=>{const b=e.getBoundingClientRect();return[b.left+b.width/2,b.top+b.height/2]};
+ const dk=document.querySelector('.utab .upile .dp');if(!dk)return;
+ const hs=[...document.querySelectorAll('.uh .uc')],ops=[...document.querySelectorAll('.ops .op .mb2')],[kx,ky]=R(dk);
+ document.querySelectorAll('.fly').forEach(f=>{
+  const p=+f.dataset.p,r=+f.dataset.r,t=p==0?hs[r]:(ops[p-1]&&ops[p-1].children[r]);if(!t)return;
+  const[fx,fy]=R(f),[tx,ty]=R(t);
+  f.style.setProperty('--sx',(kx-fx)+'px');f.style.setProperty('--sy',(ky-fy)+'px');
+  f.style.setProperty('--dx',(tx-fx)+'px');f.style.setProperty('--dy',(ty-fy)+'px')});
+}
+function unLeave(){
+ const g=U;
+ if(g&&!g.over){
+  if(!confirm(g.paid?'Oyundan çıkarsan giriş ücretin yanar. Çıkılsın mı?':'Oyundan çıkılsın mı?'))return;
+  g.over=true;clearInterval(g.iv);
+  if(g.paid&&g.gid)rpc('halka_game_finish',{...cred(),p_id:g.gid,p_result:'lost'}).then(refreshStats).catch(()=>{});
+ }
+ unModes();
+}
+function uPick(i){
+ const g=U;if(!g||g.over||g.turn!=0||g.phase)return;
+ const c=g.hands[0][i];if(!c||!uCan(c))return;
+ SND.tick();
+ if(c.c=='w'){g.pick=i;uRender();return}
+ uPlay(0,i);
+}
+function uDrawClick(){
+ const g=U;if(!g||g.over||g.turn!=0||g.phase)return;
+ if(g.drew)return;
+ if(uAny(0)){g.msg='Oynayacak kartın var!';SND.nope();uRender();return}
+ if(!uTake(0,1)){SND.nope();return}
+ g.drew=true;SND.ucard();SND.blip(520,380,.08,.1,'sine');
+ const c=g.hands[0][g.hands[0].length-1];
+ if(uCan(c)){g.msg='Kart çektin.';uRender()}
+ else{g.msg='Kart çektin, oynanamıyor.';uRender();setTimeout(()=>{if(U===g&&!g.over&&g.turn==0)uPass(g,'Pas geçtin.')},1000)}
+}
+function uPass(g,msg){
+ if(U!==g||g.over)return;
+ g.msg=msg;g.drew=false;g.pick=null;
+ g.turn=(g.turn+g.dir+g.n)%g.n;uRender();uNext();
+}
+function uPlay(p,i,col){
+ const g=U;if(!g||g.over)return;
+ const c=g.hands[p].splice(i,1)[0],nm=p==0?'Sen':g.names[p],nx=(p+g.dir+g.n)%g.n;
+ c.rot=(Math.random()*34-17)|0;g.disc.push(c);g.top=c;g.col=c.c=='w'?col:c.c;g.fresh=p==0?'me':'bot';g.drew=false;g.pick=null;
+ let skip=0,msg=(p==0?'Kart oynadın.':nm+' kart oynadı.');
+ if(c.v=='s'){skip=1;msg+=' '+g.names[nx]+' atlandı.';SND.blip(700,300,.12,.14,'square')}
+ else if(c.v=='r'){g.dir*=-1;if(g.n==2)skip=1;msg+=' Yön değişti.';SND.blip(400,900,.16,.14,'triangle')}
+ else if(c.v=='d'){const k=uTake(nx,2);skip=1;msg+=' '+g.names[nx]+' '+k+' kart çekti.';SND.blip(300,200,.1,.14,'sawtooth');SND.deal(2)}
+ else if(c.v=='f'){const k=uTake(nx,4);skip=1;msg+=' '+g.names[nx]+' '+k+' kart çekti. Renk: '+UCN[g.col]+'.';[440,554,659,880].forEach((f,j)=>SND.blip(f,f,.12,.12,'triangle',j*.07));SND.deal(4)}
+ else if(c.v=='w'){msg+=' Renk: '+UCN[g.col]+'.';[523,659,784].forEach((f,j)=>SND.blip(f,f,.12,.12,'triangle',j*.07))}
+ SND.ucard();if(['s','d','f'].includes(c.v))g.shake=true;
+ g.msg=msg;
+ if(!g.hands[p].length){uEnd(p);return}
+ if(g.hands[p].length==1){
+  if(p==0&&!g.uno){g.msg+=' UNO butonuna bas, yoksa 2 kart çekersin!';g.unoPend=true;setTimeout(()=>uUnoPenalty(g),2500)}
+  else{if(p==0)g.unoPend=false;g.banner=true;g.msg+=' '+nm+' UNO!';[660,880,1100].forEach((f,j)=>SND.blip(f,f,.14,.14,'triangle',j*.09))}
+ }
+ g.turn=(((p+g.dir*(1+skip))%g.n)+g.n)%g.n;
+ uRender();uNext();
+}
+function uNext(){
+ const g=U;if(!g||g.over)return;
+ if(g.turn==0){
+  if(!uAny(0)&&!g.deck.length&&g.disc.length<2){g.msg='Çekilecek kart kalmadı, pas.';uRender();setTimeout(()=>uPass(g,'Pas geçtin.'),1100)}
+  return;
+ }
+ setTimeout(()=>uBot(g,false),1300);
+}
+function uBot(g,drew){
+ if(U!==g||g.over)return;
+ const p=g.turn,h=g.hands[p],pl=[];
+ h.forEach((c,i)=>{if(uCan(c))pl.push(i)});
+ if(!pl.length){
+  if(drew||!uTake(p,1)){g.msg=g.names[p]+' pas geçti.';SND.pass();g.turn=(p+g.dir+g.n)%g.n;uRender();uNext();return}
+  g.msg=g.names[p]+' kart çekti.';SND.flick();uRender();setTimeout(()=>uBot(g,true),900);return;
+ }
+ const low=g.hands[(p+g.dir+g.n)%g.n].length<=2;let best=pl[0],bs=-99;
+ pl.forEach(i=>{const c=h[i];let sc=c.c=='w'?-5:UPT(c);if(low&&['s','d','f'].includes(c.v))sc+=40;if(sc>bs){bs=sc;best=i}});
+ const cnt={r:0,y:0,g:0,b:0};h.forEach((c,i)=>{if(i!=best&&c.c!='w')cnt[c.c]++});
+ const col=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0];
+ uPlay(p,best,col);
+}
+async function uEnd(w){
+ const g=U;if(!g||g.over)return;
+ g.over=true;g.pick=null;clearInterval(g.iv);let res;
+ if(w===null||w===undefined){
+  const sums=g.hands.map(h=>h.reduce((a,c)=>a+UPT(c),0)),m=Math.min.apply(null,sums),ws=[];
+  sums.forEach((s,i)=>{if(s==m)ws.push(i)});
+  res=ws.indexOf(0)>=0?(ws.length==1?'won':'draw'):'lost';
+  g.msg='Süre doldu! Kalan puanlar: '+g.names.map((n,i)=>n+' '+sums[i]).join(', ')+'.';
+ }else{res=w==0?'won':'lost';g.msg=w==0?'Tüm kartlarını bitirdin!':g.names[w]+' tüm kartlarını bitirdi.'}
+ g.res=res;SND[res=='won'?'win':res=='draw'?'tie':'lose']();uRender();
+ if(g.paid&&g.gid){
+  try{const r=await rpc('halka_game_finish',{...cred(),p_id:g.gid,p_result:res});g.prize=r?r.prize:0;refreshStats()}
+  catch(e){g.err='Sonuç kaydedilemedi: '+setupMsg(e)}
+  if(U===g)uRender();
+ }
+}
+window.addEventListener('resize',()=>{if(U)uFit()});
+document.querySelectorAll('.gc').forEach(b=>b.onclick=()=>{if(b.dataset.g=='domino')openDomino();else if(b.dataset.g=='uno')openUno()});
 </script>
 </body>
 </html>
